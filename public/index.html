@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Tohji — Complete Discography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+KR:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--bg:#04040a;--card:#0a0a14;--card-h:#10101c;--bdr:#181828;--tx:#d0d0de;--dim:#5a5a78;--acc:#b0b0c8;--purple:#8070b0;--green:#70a898;--orange:#c89060;--gold:#b8a878;--ghost:#282838;--silver:linear-gradient(135deg,#c8c8e0,#8888a8)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans KR',sans-serif;line-height:1.55;min-height:100vh;min-height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+.wrap{max-width:860px;margin:0 auto;padding:clamp(16px,4vw,40px) clamp(10px,3vw,20px) 80px}
+.hd{text-align:center;padding:clamp(28px,6vw,56px) 0 clamp(20px,4vw,40px);position:relative}
+.hd::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:48px;height:2px;background:var(--silver)}
+.hd h1{font-family:'DM Mono',monospace;font-size:clamp(2.2rem,9vw,4rem);font-weight:500;letter-spacing:-3px;background:linear-gradient(160deg,#e8e8f0 20%,#6868a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hd small{display:block;margin-top:8px;font-family:'DM Mono',monospace;font-size:clamp(9px,2.2vw,12px);color:var(--dim);letter-spacing:3px;text-transform:uppercase}
+.leg{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;margin:16px 0 clamp(16px,3vw,28px);font-size:clamp(9px,2.2vw,11px);color:var(--dim)}
+.leg i{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:3px;vertical-align:middle}
+.st{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(4px,1.5vw,10px);margin-bottom:clamp(20px,4vw,36px)}
+.st>div{background:var(--card);border:1px solid var(--bdr);border-radius:8px;padding:clamp(10px,2.5vw,18px) 4px;text-align:center}
+.st b{display:block;font-family:'DM Mono',monospace;font-size:clamp(16px,4vw,26px);color:var(--acc)}
+.st span{font-size:clamp(7px,1.8vw,10px);color:var(--dim);text-transform:uppercase;letter-spacing:.5px}
+.yr{margin-bottom:clamp(28px,5vw,44px)}
+.yr-h{font-family:'DM Mono',monospace;font-size:clamp(28px,7vw,48px);font-weight:500;color:transparent;-webkit-text-stroke:1px #202038;letter-spacing:-2px;position:sticky;top:0;z-index:10;background:var(--bg);padding:6px 0;border-bottom:1px solid var(--bdr);margin-bottom:clamp(8px,2vw,14px)}
+.cd{background:var(--card);border:1px solid var(--bdr);border-radius:clamp(8px,2vw,12px);margin-bottom:clamp(6px,1.5vw,10px);overflow:hidden;transition:border-color .2s}
+.cd.on{border-color:var(--acc)}
+.cd.dl{border-left:3px solid #a06070}
+.cd.sc{border-left:3px solid var(--orange)}
+.cd.un{border-left:3px solid var(--ghost)}
+.ch{display:flex;align-items:center;gap:clamp(10px,2.5vw,16px);padding:clamp(8px,2vw,14px) clamp(10px,2.5vw,18px);cursor:pointer;user-select:none}
+.ch:active{background:var(--card-h)}
+@media(min-width:700px){.ch:hover{background:var(--card-h)}}
+.ar{width:clamp(42px,11vw,56px);height:clamp(42px,11vw,56px);border-radius:clamp(5px,1.2vw,8px);object-fit:cover;flex-shrink:0;aspect-ratio:1/1;background:var(--card-h)}
+.ic{width:clamp(42px,11vw,56px);height:clamp(42px,11vw,56px);border-radius:clamp(5px,1.2vw,8px);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:clamp(16px,4vw,22px);aspect-ratio:1/1}
+.ic-sc{background:linear-gradient(135deg,#8a6030,#6a4820);color:#d8c090}
+.ic-dl{background:linear-gradient(135deg,#2a1828,#1a0e18);color:#a06070}
+.ic-un{background:#0c0c18;color:var(--ghost)}
+.ic-lv{background:linear-gradient(135deg,#1a1430,#100c20);color:var(--purple)}
+.ic-ft{background:#080e14;color:var(--green)}
+.ci{flex:1;min-width:0;overflow:hidden}
+.ct{font-weight:600;font-size:clamp(12px,3.2vw,15px);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cm{font-size:clamp(9px,2.3vw,12px);color:var(--dim);display:flex;flex-wrap:wrap;gap:3px 6px;align-items:center;margin-top:2px}
+.tg{font-size:clamp(7px,1.8vw,10px);padding:1px clamp(4px,1vw,7px);border-radius:3px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap}
+.tg-al{background:linear-gradient(135deg,#4040608a,#2828408a);color:#c0c0e0}.tg-ep{background:#20203a;color:var(--purple)}
+.tg-sg{background:#0c1820;color:var(--green)}.tg-mx{background:#1a1810;color:var(--gold)}
+.tg-ft{background:#0a1418;color:var(--green)}.tg-dl{background:#201018;color:#a06070}
+.tg-sc{background:#1a1408;color:var(--orange)}.tg-un{background:#0c0c14;color:#404058}
+.tg-lv{background:#120e22;color:var(--purple)}.tg-mb{background:#181410;color:var(--gold)}
+.chv{width:clamp(14px,3.5vw,20px);height:clamp(14px,3.5vw,20px);flex-shrink:0;transition:transform .3s;color:var(--dim)}
+.cd.on .chv{transform:rotate(180deg)}
+.cb{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.cbi{padding:0 clamp(10px,2.5vw,18px) clamp(10px,2.5vw,16px);border-top:1px solid var(--bdr)}
+.ds{font-size:clamp(11px,2.8vw,13px);color:var(--dim);margin:clamp(8px,2vw,14px) 0;line-height:1.65}
+.tl{list-style:none}
+.tl li{display:flex;align-items:flex-start;gap:clamp(6px,1.5vw,10px);padding:clamp(5px,1.2vw,8px) 0;border-bottom:1px solid #0e0e1c;font-size:clamp(11px,2.8vw,13px)}
+.tl li:last-child{border-bottom:none}
+.tn{font-family:'DM Mono',monospace;font-size:clamp(9px,2.2vw,11px);color:var(--dim);width:clamp(16px,4vw,22px);text-align:right;flex-shrink:0;margin-top:1px}
+.nm{flex:1;min-width:0;word-break:break-word}.nm.sk{text-decoration:line-through;color:#a06070;opacity:.55}
+.ft{display:block;font-size:clamp(8px,2vw,10px);color:var(--dim);margin-top:1px;opacity:.75}
+.ts{font-size:clamp(7px,1.6vw,9px);padding:1px clamp(3px,.8vw,5px);border-radius:3px;flex-shrink:0;margin-top:2px;white-space:nowrap}
+.ts-d{background:#1a0e18;color:#a06070}.ts-s{background:#1a1408;color:var(--orange)}
+@media(max-width:380px){.st{grid-template-columns:repeat(2,1fr)}}
+/* ── filter bar ── */
+.fb{display:flex;gap:clamp(5px,1.2vw,8px);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:clamp(10px,2.5vw,16px) 0;position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--bdr);margin-bottom:clamp(16px,3vw,24px)}
+.fb::-webkit-scrollbar{display:none}
+.fb button{flex-shrink:0;font-family:'Noto Sans KR',sans-serif;font-size:clamp(10px,2.5vw,13px);font-weight:600;padding:clamp(5px,1.3vw,8px) clamp(10px,2.5vw,16px);border-radius:100px;border:1px solid var(--bdr);background:var(--card);color:var(--dim);cursor:pointer;transition:all .2s;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.fb button:active{transform:scale(.95)}
+.fb button.on{background:linear-gradient(135deg,#a0a0c0,#7070a0);color:#08080e;border-color:#8888a8}
+.fb button .cnt{font-family:'DM Mono',monospace;font-size:clamp(8px,2vw,10px);margin-left:4px;opacity:.7}
+/* ── filter transitions ── */
+.yr.hide{display:none}
+.cd.fhide{display:none}
+.no-result{text-align:center;padding:40px 20px;color:var(--dim);font-size:clamp(12px,3vw,14px)}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hd"><h1>TOHJI</h1><small>Complete Discography · 2015 – 2026</small></div>
+<div class="leg">
+<span><i style="background:var(--green)"></i>공개</span><span><i style="background:#a06070"></i>삭제</span>
+<span><i style="background:var(--orange)"></i>사클한정</span><span><i style="background:var(--ghost)"></i>미발매</span>
+<span><i style="background:var(--gold)"></i>팬보존</span>
+</div>
+<div class="st"><div><b>110+</b><span>총 트랙</span></div><div><b>11</b><span>앨범/EP</span></div><div><b>5</b><span>삭제곡</span></div><div><b>10+</b><span>SC한정</span></div></div>
+<div class="fb" id="FB">
+<button class="on" data-f="all">전체</button>
+<button data-f="al,ep,mx">앨범/EP</button>
+<button data-f="sg">싱글</button>
+<button data-f="mb">Mall Boyz</button>
+<button data-f="ft">피처링</button>
+<button data-f="sc">사클한정</button>
+<button data-f="dl">삭제</button>
+<button data-f="un,lv">미발매/라이브</button>
+</div>
+<div id="D"></div>
+</div>
+<script>
+const A={
+// Albums/EPs
+"1996":"https://i.scdn.co/image/ab67616d0000b2734ef9fff4096a6f151447eeae",
+"997":"https://i.scdn.co/image/ab67616d0000b2739148fc9e62ab4ccdc087c077",
+"mall1":"https://i.scdn.co/image/ab67616d0000b2730be0e21035b29803050722d3",
+"angel":"https://i.scdn.co/image/ab67616d0000b273bdcf7cfee5aeb554d370fc99",
+"kuuga":"https://i.scdn.co/image/ab67616d0000b27356e40468d1a656ce2ab85618",
+"broken":"https://i.scdn.co/image/ab67616d0000b273d05e55923134f4790da1f7e9",
+"tmix":"https://i.scdn.co/image/ab67616d0000b273ed4fba4e9035edf891cdf437",
+"mall2":"https://i.scdn.co/image/ab67616d0000b2734fed655d13f42ccb287fb1f1",
+"mediumrare":"https://i.scdn.co/image/ab67616d0000b27353c09a8c3de5d9a6921d14f2",
+"zero1":"https://i.scdn.co/image/ab67616d0000b2731c5e4ab15ded93d6a213489f",
+"zero2":"https://i.scdn.co/image/ab67616d0000b273f6a9539a71bba9a07aea3fd4",
+// Singles
+"godzilla":"https://i.scdn.co/image/ab67616d0000b273d486f8f46ba571d20226c2f8",
+"oreo":"https://i.scdn.co/image/ab67616d0000b273e06711de595b0e7d3a3247fe",
+"propella":"https://i.scdn.co/image/ab67616d0000b2739e1068491eca152e022081d7",
+"ultrarare":"https://i.scdn.co/image/ab67616d0000b2739fd6bde0cecb6c518ce66a01",
+"twilight":"https://i.scdn.co/image/ab67616d0000b273ec6943059647aa945ff00980",
+"aglio":"https://i.scdn.co/image/ab67616d0000b273a39bf5eb4beebe6805f2f2ed",
+"phenomeno":"https://i.scdn.co/image/ab67616d0000b273b1acd663f28fe00c58debc52",
+"frozen":"https://i.scdn.co/image/ab67616d0000b2732f80b9c6cb67818d76c5839d",
+"tenkasu":"https://i.scdn.co/image/ab67616d0000b27361dfce4318e385f85e17b1c2",
+"jungle":"https://i.scdn.co/image/ab67616d0000b27380345583261c1d5ed468f12d",
+"200":"https://i.scdn.co/image/ab67616d0000b273643e4f75bc9d15e41cc70ad4",
+"echo":"https://i.scdn.co/image/ab67616d0000b273219d15cdedf45b93cc928d05",
+"myswag":"https://i.scdn.co/image/ab67616d0000b273e34daca7590cd68b40afdf92",
+"one":"https://i.scdn.co/image/ab67616d0000b273e63693ea40bb8a95ec361f84",
+"oreomalibu":"https://i.scdn.co/image/ab67616d0000b273a417f08996316f44881db4dc",
+"oreomura":"https://i.scdn.co/image/ab67616d0000b273faa3af39b7b1662cfa0f560f",
+"simone":"https://i.scdn.co/image/ab67616d0000b273d8c1bc9cafc2b8281272de6e",
+// Mall Boyz singles
+"poolside":"https://i.scdn.co/image/ab67616d0000b27343b0770a8a76fb3ffcf0db58",
+"mangorun":"https://i.scdn.co/image/ab67616d0000b273d2571f5320cdbf7b8dfeb7b2",
+"mylife":"https://i.scdn.co/image/ab67616d0000b273970dfcf615bf68bb5cee11ab",
+// SoundCloud
+"nap":"https://i1.sndcdn.com/artworks-000282067166-0k126c-t500x500.jpg",
+"empire":"https://i1.sndcdn.com/artworks-000405219033-4cacz2-t500x500.jpg",
+"war":"https://i1.sndcdn.com/artworks-000227407386-0uu6yi-t500x500.jpg",
+"cityhunter":"https://i1.sndcdn.com/artworks-000227406945-wyc9wl-t500x500.jpg",
+"mallscrew":"https://i1.sndcdn.com/artworks-FaBnL1nSKvobVUYy-U0IIgg-t500x500.jpg",
+"ohboy":"https://i1.sndcdn.com/artworks-000240796256-lovyod-t500x500.jpg",
+// Featuring albums
+"distortion":"https://i.scdn.co/image/ab67616d0000b27303079ccd2d9797b64f2c5a7a",
+"glitch":"https://i.scdn.co/image/ab67616d0000b273cad35e789738e1f4f499ead0",
+"kbl3":"https://i.scdn.co/image/ab67616d0000b273c23d811101165d1d50bf4fc9",
+"sunrise":"https://i.scdn.co/image/ab67616d0000b27326e42b71afd75d9b029f5c4e",
+"piercing":"https://i.scdn.co/image/ab67616d0000b27326a8ebee62f70f80c6ac1673",
+"kamui":"https://i.scdn.co/image/ab67616d0000b273a404c040aea17a6f2587d7f8",
+"okamotos":"https://i.scdn.co/image/ab67616d0000b2738be51b6257b348e2a41e29a7",
+"gokuvibes":"https://i.scdn.co/image/ab67616d0000b2739e613576ad89a73afedb1bb3",
+"ridin":"https://i.scdn.co/image/ab67616d0000b2732e73bdec678fa09696e5cf15",
+"madworld":"https://i.scdn.co/image/ab67616d0000b27359ff5bbffcfe515bbea3f072",
+"acrossthesea":"https://i.scdn.co/image/ab67616d0000b273684e3daae3efeacd3eeb41a2",
+"lovesick":"https://i.scdn.co/image/ab67616d0000b273977ecb61c3452ffbe96a5e2c",
+"freesia":"https://i.scdn.co/image/ab67616d0000b27397ca60554e55deb2e0ea5fd6",
+"helheim":"https://i.scdn.co/image/ab67616d0000b273fe57892691e21d0c9e541eff",
+"sharingsecrets":"https://i.scdn.co/image/ab67616d0000b2731f48605a08456fe0b63f85e8",
+"sagging":"https://i.scdn.co/image/ab67616d0000b273651a590dfebbfe6b2c67ac23",
+"heisei":"https://i.scdn.co/image/ab67616d0000b273b10d502d273bc04b41bb8866",
+"ahiru":"https://i.scdn.co/image/ab67616d0000b2739acde4c9ea1bff441d720bb7",
+"246":"https://i.scdn.co/image/ab67616d0000b273eb397a7536383c1a4e4b041a",
+"demontime":"https://i.scdn.co/image/ab67616d0000b273a620fd20b220c4bf513b40e5",
+"odorata":"https://i.scdn.co/image/ab67616d0000b2736fdf41f610ce5eba54a8836f",
+"unlimitedammo":"https://i.scdn.co/image/ab67616d0000b27389455922b57436e37937dd75",
+"jellybean":"https://i1.sndcdn.com/artworks-000238747767-29yqlp-t500x500.jpg",
+"doctor":"https://i1.sndcdn.com/artworks-000245118838-31f5l6-t500x500.jpg",
+"lilshawty":"https://i1.sndcdn.com/artworks-000303259935-c8eaqw-t500x500.jpg",
+"orangerange":"https://i1.sndcdn.com/artworks-K9OSJiLpK2qowSM3-9liNJg-t500x500.jpg",
+"lastnight":"https://i.scdn.co/image/ab67616d0000b273a8b27709b865cc666f8e025d",
+"game":"https://i.scdn.co/image/ab67616d0000b273bfcc927de3f556b78fa66255",
+"redoct":"https://i.scdn.co/image/ab67616d0000b2739a69a8683a76adbe89bf636e",
+"dawnep":"https://i.scdn.co/image/ab67616d0000b273fabd4dadf24d0e3a6550afc2",
+"rasen":"https://i.ytimg.com/vi/5fPk-_24Mh8/hqdefault.jpg",
+"whitedolphins":"https://i1.sndcdn.com/artworks-fWyaRsBQOs0yKfeQ-ty9GUA-t500x500.jpg",
+"rodeo":"https://i.scdn.co/image/ab67616d0000b273e00d2ad7a60dc28be3a4e273",
+"onmyownway":"https://i.scdn.co/image/ab67616d0000b2734e1cf1675bc2e3597c81c974"
+};
+const D=[
+{y:"2015–16",r:[
+{tg:"미발매",tc:"un",ic:"un",ix:"◌",t:"USB 배포 음원 (1~2곡)",m:"~2015 · 런던",d:"PALACE/Supreme 매장 앞 USB 배포. 영구 소실.",tr:[]}
+]},
+{y:"2017",r:[
+{tg:"사클한정",tc:"sc",a:"war",t:"War (Where Ya at Remix)",m:"2017.01.24 · SC",d:"Future DS2 비트잭.",tr:[{n:"1",v:"War (Where Ya at Remix)",s:"s"}]},
+{tg:"사클한정",tc:"sc",a:"cityhunter",t:"City Hunter",m:"2017.02.02 · SC",d:"Prod. Tohji.",tr:[{n:"1",v:"City Hunter",s:"s"}]},
+{tg:"싱글",tc:"sg",a:"godzilla",t:"I'm a Godzilla Duh",m:"2017.03.10 · 데뷔 싱글",d:"공식 데뷔. 셀프 프로듀스.",tr:[{n:"1",v:"I'm a Godzilla Duh"}]},
+{tg:"EP",tc:"ep",a:"1996",t:"1996",m:"2017.09.01 · 4곡 · Prod. dannyboi",d:"DatPiff 무료 배포 후 스트리밍 등록.",tr:[{n:"1",v:"IDWPA -prelude-"},{n:"2",v:"Veen veeen!"},{n:"3",v:"oh boy"},{n:"4",v:"YUGURE"}]},
+{tg:"피처링",tc:"ft",a:"jellybean",t:"jelly bean",m:"2017.04.18 · nokia god. · SC Only",d:"nokia god.(=dannyboi) 페이지 업로드. 29.6만 재생.",tr:[{n:"1",v:"jelly bean",f:"nokia god. ft. Tohji",s:"s"}]},
+{tg:"피처링",tc:"ft",a:"doctor",t:"DOCTOR",m:"~2017.10.01 · gummyboy · SC Only",d:"gummyboy(@akirayagi) 솔로곡. Mall Boyz 결성 전.",tr:[{n:"1",v:"DOCTOR",f:"gummyboy ft. Tohji",s:"s"}]},
+{tg:"TV전용",tc:"un",ic:"lv",ix:"◉",t:"ラップスタア誕生! 퍼포먼스",m:"2017 · AbemaTV",d:"랩 오디션 결승. 음원 미발매.",tr:[]}
+]},
+{y:"2018",r:[
+{tg:"사클한정",tc:"sc",a:"nap",t:"nap",m:"2018.01.08 · SC · ~300만",d:"Gokou Kuyt × Tohji × Sleet Mage × Who28.",tr:[{n:"1",v:"nap",f:"ft. Gokou Kuyt, Sleet Mage, Who28",s:"s"}]},
+{tg:"피처링",tc:"ft",a:"lilshawty",t:"lil shawty from the westside",m:"2018.02.16 · Eenzame Jongen · SC Only",d:"해외 아티스트 콜라보. 11.4만 재생.",tr:[{n:"1",v:"lil shawty from the westside",f:"Eenzame Jongen ft. Tohji",s:"s"}]},
+{tg:"EP",tc:"ep",a:"997",t:"9.97",m:"2018.07.21 · 4곡 · 셀프 프로듀스",d:"전곡 MV.",tr:[{n:"1",v:"sugAA"},{n:"2",v:"flu",f:"ft. Fuji Taito"},{n:"3",v:"mAntle f**k"},{n:"4",v:"sAru"}]},
+{tg:"피처링",tc:"ft",a:"dawnep",t:"slim christ",m:"2018.08.08 · stei · dawn ep",d:"TuneCore Japan.",tr:[{n:"3",v:"slim christ",f:"stei ft. Tohji"}]},
+{tg:"사클한정",tc:"sc",a:"empire",t:"Empire 2000 [NEO PARAPARA mix]",m:"2018.09.14 · SC · 130만+",d:"Mall Boyz. Free DL.",tr:[{n:"1",v:"Empire 2000 [NEO PARAPARA mix]",s:"s"}]},
+{tg:"사클한정",tc:"sc",a:"mallscrew",t:"on my own way -mall screw mix-",m:"~2018 · SC",d:"",tr:[{n:"1",v:"on my own way -mall screw mix-",s:"s"}]},
+{tg:"사클한정",tc:"sc",ic:"sc",ix:"☁",t:"SC 루시 (추가)",m:"~2018 · 비공식",d:"삭제곡 포함.",tr:[{n:"1",v:"MARUMORI GOD",f:"gummyboy · Drake 비트잭",s:"s"},{n:"2",v:"Bird Freestyle",f:"삭제→팬보존",s:"d"},{n:"3",v:"Chaos たわごと",f:"ft. DannyBoi, gummyboy, Lil Fuck",s:"s"},{n:"4",v:"iloveyou / 浮世で荒ぶ風に泣く忍者",f:"삭제→팬보존 5.9만",s:"d"},{n:"5",v:"Did It",f:"prod. stei",s:"s"},{n:"6",v:"assenayo",f:"danny died SC",s:"s"}]},
+{tg:"피처링",tc:"ft",a:"heisei",t:"Black Hole",m:"2018.11.07 · 釈迦坊主 · HEISEI",d:"",tr:[{n:"10",v:"Black Hole",f:"釈迦坊主 ft. Sleet Mage, Kaine dot Co & Tohji"}]},
+{tg:"MALL BOYZ",tc:"mb",a:"mall1",t:"Mall Tape",m:"2018.12.26 · 4곡",d:"'Higher' YT 500만+, iTunes 힙합 1위.",tr:[{n:"1",v:"Higher"},{n:"2",v:"fuck it up"},{n:"3",v:"mallin'"},{n:"4",v:"Cool running",f:"ft. SEEDA"}]}
+]},
+{y:"2019",r:[
+{tg:"피처링",tc:"ft",a:"kamui",t:"Salvage",m:"2019.04.22 · kamui · I Am Special",d:"Mudolly.",tr:[{n:"5",v:"Salvage",f:"kamui ft. Tohji"}]},
+{tg:"피처링",tc:"ft",a:"lastnight",t:"lastnight",m:"2019.04.23 · ULTRA KOREARS",d:"stei × TYOSiN × Tohji.",tr:[{n:"1",v:"lastnight",f:"stei, TYOSiN & Tohji"}]},
+{tg:"피처링",tc:"ft",a:"game",t:"aero",m:"2019.05.16 · DJ CHARI · GAME",d:"",tr:[{n:"3",v:"aero",f:"DJ CHARI ft. Tohji & gummyboy"}]},
+{tg:"피처링",tc:"ft",a:"okamotos",t:"ART (OBKR/Yaffle Remix)",m:"2019.06.14 · OKAMOTO'S",d:"Prod. OBKR & Yaffle.",tr:[{n:"1",v:"ART (OBKR/Yaffle Remix)",f:"ft. Gottz, Tohji & Shurkn Pap"}]},
+{tg:"믹스테이프",tc:"mx",a:"angel",t:"angel (1st Mixtape)",m:"2019.08.07 · 9곡→5곡",d:"MURVSAKI 사건으로 4곡 영구 삭제. 수익금 기부.",tr:[{n:"1",v:"intro"},{n:"2",v:"Snowboarding",f:"Prod. MURVSAKI",s:"d"},{n:"3",v:"Rodeo",f:"SC Japan 1위"},{n:"4",v:"mamasaidloveme"},{n:"5",v:"HI-CHEW",f:"Prod. MURVSAKI",s:"d"},{n:"6",v:"Jetlife",f:"ft. Loota · MURVSAKI",s:"d"},{n:"7",v:"トウジ負傷"},{n:"8",v:"on my own way",f:"Prod. Zeph Ellis"},{n:"9",v:"miss u",f:"Prod. MURVSAKI",s:"d"}]},
+{tg:"싱글",tc:"sg",a:"rodeo",t:"Rodeo (별도 싱글)",m:"2019 · angel 수록곡 · 별도 배포",d:"SC Japan 전장르 1위. Apple Music/Spotify 별도 등록.",tr:[{n:"1",v:"Rodeo"}]},
+{tg:"싱글",tc:"sg",a:"onmyownway",t:"On My Own Way (별도 싱글)",m:"2019 · angel 수록곡 · 별도 배포",d:"Spotify 778만+ 스트림. Prod. Zeph Ellis.",tr:[{n:"1",v:"On My Own Way"}]},
+{tg:"피처링",tc:"ft",a:"redoct",t:"Red Oct",m:"2019.08.28 · Dreaming of Screaming",d:"dosing collective.",tr:[{n:"5",v:"Red Oct",f:"ft. Tohji, Grip King Jamie 외"}]},
+{tg:"피처링",tc:"ft",a:"rasen",t:"Red Bull RASEN Vol.2",m:"2019.08.15 · YouTube Only",d:"Daichi Yamamoto, 釈迦坊主, dodo & Tohji. Prod. VaVa.",tr:[{n:"1",v:"RASEN Vol.2 Cypher",f:"Daichi Yamamoto, 釈迦坊主, dodo & Tohji"}]},
+{tg:"피처링",tc:"ft",a:"piercing",t:"Tohji's Track",m:"2019.12.18 · 小袋成彬 · Piercing",d:"",tr:[{n:"10",v:"Tohji's Track",f:"小袋成彬 ft. Tohji"}]}
+]},
+{y:"2020",r:[
+{tg:"피처링",tc:"ft",a:"distortion",t:"TEENAGE VIBE",m:"2020.04.22 · kZm · DISTORTION",d:"Prod. Chaki Zulu.",tr:[{n:"17",v:"TEENAGE VIBE",f:"kZm ft. Tohji"}]},
+{tg:"싱글",tc:"sg",a:"propella",t:"プロペラ (Propella)",m:"2020.08.19",d:"Prod. Danny Died.",tr:[{n:"1",v:"プロペラ"}]},
+{tg:"피처링",tc:"ft",a:"gokuvibes",t:"GOKU VIBES",m:"2020.08.26 · DJ CHARI & DJ TATSUKI",d:"가사 수정 버전.",tr:[{n:"1",v:"GOKU VIBES",f:"ft. Tohji, Elle Teresa 외"}]},
+{tg:"싱글",tc:"sg",a:"oreo",t:"Oreo",m:"2020.09.18",d:"MURVSAKI 태그 제거 후 존속.",tr:[{n:"1",v:"Oreo"}]},
+{tg:"피처링",tc:"ft",a:"ridin",t:"Ridin'",m:"2020.10.07 · Sawaki",d:"",tr:[{n:"1",v:"Ridin'",f:"Sawaki ft. Tohji"}]},
+{tg:"피처링",tc:"ft",a:"acrossthesea",t:"across the sea...",m:"2020.10.28 · Bloodz Boi",d:"",tr:[{n:"1",v:"across the sea my dreams are born in silence",f:"Bloodz Boi ft. Tohji & bod"}]},
+{tg:"피처링",tc:"ft",a:"madworld",t:"SOMETIMES I TRY NOT TO CARE",m:"2020.10.30 · Mahne Frame · MAD WORLD",d:"",tr:[{n:"4",v:"SOMETIMES I TRY NOT TO CARE",f:"Mahne Frame ft. Tohji"}]},
+{tg:"싱글",tc:"sg",a:"oreomalibu",t:"Oreo (Malibu Seven Seas Mix)",m:"2020.11.18",d:"리믹스.",tr:[{n:"1",v:"Oreo (Malibu Seven Seas Mix)"}]},
+{tg:"싱글",tc:"sg",a:"oreomura",t:"Oreo (Mura Masa Eternal Mix)",m:"2020.12.16",d:"리믹스.",tr:[{n:"1",v:"Oreo (Mura Masa Eternal Mix)"}]},
+{tg:"삭제",tc:"dl",a:"whitedolphins",t:"White Dolphins",m:"~2020.06.15 · 삭제 2021.11.01",d:"앰비언트. MURVSAKI 관련. 팬 리업.",tr:[{n:"1",v:"White Dolphins",s:"d"}]}
+]},
+{y:"2021",r:[
+{tg:"피처링",tc:"ft",a:"lovesick",t:"Love Sick",m:"2021.03.10 · Loota",d:"",tr:[{n:"1",v:"Love Sick",f:"Loota ft. Tohji"}]},
+{tg:"앨범",tc:"al",a:"kuuga",t:"KUUGA",m:"2021.03.31 · 8곡 · with Loota & Brodinski",d:"전곡 Brodinski 프로듀스.",tr:[{n:"1",v:"Aegu"},{n:"2",v:"Yodaka"},{n:"3",v:"Tob"},{n:"4",v:"Naked"},{n:"5",v:"Oni"},{n:"6",v:"Iron D**k"},{n:"7",v:"Errday"},{n:"8",v:"Outro"}]},
+{tg:"싱글",tc:"sg",a:"echo",t:"echo",m:"2021.08.04 · with Loota & Mechatok",d:"",tr:[{n:"1",v:"echo"}]},
+{tg:"MALL BOYZ",tc:"mb",a:"poolside",t:"POOL SIDE",m:"2021.08.18 · Mall Boyz",d:"",tr:[{n:"1",v:"POOL SIDE"}]},
+{tg:"싱글",tc:"sg",a:"myswag",t:"My Swag",m:"2021.12.01 · 셀프 프로듀스",d:"",tr:[{n:"1",v:"My Swag"}]},
+{tg:"미발매",tc:"un",ic:"un",ix:"◌",t:"2021 솔로 앨범 (무산)",m:"기획→무산",d:"MURVSAKI 스캔들로 무산.",tr:[]}
+]},
+{y:"2022",r:[
+{tg:"EP",tc:"ep",a:"broken",t:"broken ep",m:"2022.01.26 · 5곡 · with Thrilliam Angels",d:"고속도로 사고 후 제작.",tr:[{n:"1",v:"rip ma FD skit"},{n:"2",v:"カモメ"},{n:"3",v:"on n on"},{n:"4",v:"a piano boy skit"},{n:"5",v:"M78"}]},
+{tg:"피처링",tc:"ft",a:"glitch",t:"Perfect Blue",m:"2022.02.04 · yeule · Glitch Princess",d:"songwriter/producer.",tr:[{n:"5",v:"Perfect Blue",f:"yeule ft. Tohji"}]},
+{tg:"싱글",tc:"sg",a:"one",t:"one",m:"2022.02.09 · Prod. Mechatok",d:"",tr:[{n:"1",v:"one"}]},
+{tg:"피처링",tc:"ft",a:"unlimitedammo",t:"Demonic (felicita + Tohji Remix)",m:"2022.04.08 · Namasenda · PC Music",d:"Unlimited Ammo: Infinity 리믹스 앨범. Bandcamp 선행 2021.10.28.",tr:[{n:"4",v:"Demonic (felicita + Tohji Remix)",f:"Namasenda ft. La Zowi · Remix: felicita & Tohji"}]},
+{tg:"피처링",tc:"ft",a:"ahiru",t:"Moon Sun",m:"2022.04.13 · 釈迦坊主 · AHIRU",d:"",tr:[{n:"5",v:"Moon Sun",f:"釈迦坊主 ft. Tohji"}]},
+{tg:"싱글",tc:"sg",a:"ultrarare",t:"ULTRA RARE",m:"2022.04.22 · t-mix 선행",d:"",tr:[{n:"1",v:"ULTRA RARE",f:"ft. Mechatok"}]},
+{tg:"싱글",tc:"sg",a:"twilight",t:"Twilight Zone",m:"2022.05.06 · t-mix 선행",d:"",tr:[{n:"1",v:"Twilight Zone",f:"ft. Bladee"}]},
+{tg:"믹스테이프",tc:"mx",a:"tmix",t:"t-mix (2nd Mixtape)",m:"2022.06.03 · 11곡",d:"Bladee, yeule, Mechatok 등.",tr:[{n:"1",v:"HANABI",f:"ft. Palmistry & Mechatok"},{n:"2",v:"Valley says",f:"ft. eternalusa"},{n:"3",v:"ULTRA RARE",f:"ft. Mechatok"},{n:"4",v:"Twilight Zone",f:"ft. Bladee"},{n:"5",v:"shell",f:"ft. yeule"},{n:"6",v:"WATER WAY",f:"ft. Mechatok"},{n:"7",v:"Super Ocean Man",f:"ft. Banvox"},{n:"8",v:"seaside train skit"},{n:"9",v:"Maihama",f:"ft. Thrilliam Angels"},{n:"10",v:"nerunerunerune"},{n:"11",v:"UFO",f:"ft. Mechatok"}]},
+{tg:"피처링",tc:"ft",a:"helheim",t:"Different Trains",m:"2022.06.03 · Loota · Helheim 선행",d:"앨범 2022.10.07.",tr:[{n:"7",v:"Different Trains",f:"Loota ft. Tohji"}]},
+{tg:"피처링",tc:"ft",a:"sharingsecrets",t:"Taco",m:"2022.09.04 · Himera · Sharing Secrets",d:"Unseelie.",tr:[{n:"5",v:"Taco",f:"Himera ft. Tohji"}]},
+{tg:"피처링",tc:"ft",a:"demontime",t:"slomo",m:"2022.09.16 · Mura Masa · demon time",d:"Polydor/Universal. Lil Uzi Vert, PinkPantheress 등 참여 앨범.",tr:[{n:"3",v:"slomo",f:"Mura Masa ft. Tohji & Midas the Jagaban"}]},
+{tg:"미발매",tc:"un",ic:"un",ix:"◌",t:"t-mix 시리즈 (2편 이후)",m:"미발매",d:"zero 시리즈로 대체.",tr:[]},
+{tg:"피처링",tc:"ft",a:"orangerange",t:"オレンジレンジ",m:"2022.12.30 · SC Only · 6인 포세컷",d:"Tohji, RY0N4, Yoyou, gummyboy, Lil Soft Tennis, Saren.",tr:[{n:"1",v:"オレンジレンジ",f:"Tohji, RY0N4, Yoyou, gummyboy, Lil Soft Tennis, Saren",s:"s"}]}
+]},
+{y:"2023",r:[
+{tg:"피처링",tc:"ft",a:"odorata",t:"Play",m:"2023.02.08 · Le Makeup · Odorata",d:"PURE VOYAGE / Space Shower. 2023.02.15 앨범 수록.",tr:[{n:"9",v:"Play",f:"Le Makeup ft. Tohji & gummyboy"}]},
+{tg:"피처링",tc:"ft",a:"freesia",t:"Freesia",m:"2023.03.17 · Loota · ft. Le Makeup",d:"",tr:[{n:"1",v:"Freesia",f:"Loota ft. Tohji & Le Makeup"}]},
+{tg:"MALL BOYZ",tc:"mb",a:"mangorun",t:"mango run",m:"2023.05.24 · Mall Boyz",d:"",tr:[{n:"1",v:"mango run"}]},
+{tg:"MALL BOYZ",tc:"mb",a:"mylife",t:"My Life",m:"2023.06.07 · Mall Boyz",d:"",tr:[{n:"1",v:"My Life"}]},
+{tg:"MALL BOYZ",tc:"mb",a:"mall2",t:"Mall Tape 2",m:"2023.07.05 · 7곡",d:"iTunes 힙합 1위.",tr:[{n:"1",v:"My Life"},{n:"2",v:"mango run"},{n:"3",v:"5pm skit",f:"ft. Yaona Sui"},{n:"4",v:"Akira yeah"},{n:"5",v:"let's go to the poolside"},{n:"6",v:"POOL SIDE"},{n:"7",v:"Do u remember me"}]},
+{tg:"피처링",tc:"ft",a:"kbl3",t:"To My Bed",m:"2023.09.13 · Elle Teresa · KBL III",d:"",tr:[{n:"9",v:"To My Bed",f:"Elle Teresa ft. Tohji & gummyboy"}]},
+{tg:"싱글",tc:"sg",a:"aglio",t:"Aglio e olio",m:"2023.09.29 · Eastern Margins",d:"",tr:[{n:"1",v:"Aglio e olio"}]}
+]},
+{y:"2024",r:[
+{tg:"피처링",tc:"ft",a:"sunrise",t:"One More Energy",m:"2024.02.05 · Thrilliam Angels",d:"This Sunrise Is Brutal.",tr:[{n:"8",v:"One More Energy",f:"ft. Tohji & d.j. polyplus u.c."}]},
+{tg:"싱글",tc:"sg",a:"phenomeno",t:"Phenomeno",m:"2024.04.12 · Eastern Margins",d:"",tr:[{n:"1",v:"Phenomeno"}]},
+{tg:"싱글",tc:"sg",a:"frozen",t:"frozen rain",m:"2024.05.15",d:"",tr:[{n:"1",v:"frozen rain"}]},
+{tg:"EP",tc:"ep",a:"mediumrare",t:"medium rare",m:"2024.07.31 · 3곡 · Prod. Mechatok",d:"",tr:[{n:"1",v:"medium rare"},{n:"2",v:"frozen rain"},{n:"3",v:"Phenomeno"}]},
+{tg:"싱글",tc:"sg",a:"simone",t:"medium rare (sim0ne remix)",m:"2024.10.16",d:"",tr:[{n:"1",v:"medium rare (sim0ne remix)"}]},
+{tg:"피처링",tc:"ft",a:"sagging",t:"Sagging My Jeans",m:"2024.11.20 · kZm",d:"Prod. Chaki Zulu.",tr:[{n:"1",v:"Sagging My Jeans",f:"kZm ft. Lil Ash Zange & Tohji"}]},
+{tg:"싱글",tc:"sg",a:"tenkasu",t:"Tenkasu",m:"2024.12.11 · Eastern Margins",d:"zero-one 선행.",tr:[{n:"1",v:"Tenkasu"}]}
+]},
+{y:"2025",r:[
+{tg:"앨범",tc:"al",a:"zero1",t:"zero-one",m:"2025.03.07 · 7곡 · NEO BASS-MUSIC",d:"은퇴 전 시리즈 Part 1.",tr:[{n:"1",v:"Sapphire Timberlake"},{n:"2",v:"泣"},{n:"3",v:"ゲルニカ系"},{n:"4",v:"Tenkasu"},{n:"5",v:"聖闘士星矢"},{n:"6",v:"的な"},{n:"7",v:"Galaxy"}]},
+{tg:"싱글",tc:"sg",a:"jungle",t:"Jungle人",m:"2025.04.30 · zero-two 선행",d:"",tr:[{n:"1",v:"Jungle人"}]},
+{tg:"앨범",tc:"al",a:"zero2",t:"zero-two",m:"2025.05.30 · 8곡 · Eastern Margins",d:"마지막 정규 릴리즈.",tr:[{n:"1",v:"Jungle人"},{n:"2",v:"Terminator"},{n:"3",v:"あちぃ"},{n:"4",v:"Dream"},{n:"5",v:"バブー"},{n:"6",v:"X-ray"},{n:"7",v:"Jenga"},{n:"8",v:"Crystal世阿弥"}]},
+{tg:"싱글",tc:"sg",a:"200",t:"200",m:"2025.07.22 · Mechatok & Tohji",d:"Wide Awake 수록.",tr:[{n:"1",v:"200"}]},
+{tg:"라이브전용",tc:"lv",ic:"lv",ix:"◉",t:"라이브 전용 (2025)",m:"음원 미발매",d:"ぴあアリーナMM(2025.02). 다큐 2025.06.20.",tr:[{n:"1",v:"Tenkasu remix (ft. Fuji Taito)",s:"s"},{n:"2",v:"暗黒舞踏会 미공개곡",s:"s"}]}
+]},
+{y:"2026",r:[
+{tg:"MALL BOYZ",tc:"mb",a:"246",t:"246",m:"2026.04.01 · Mall Boyz",d:"Tohji 은퇴 직전 Mall Boyz 신곡. Route 246(国道246号) 레퍼런스 추정.",tr:[{n:"1",v:"246"}]},
+{tg:"최종공연",tc:"lv",ic:"lv",ix:"◉",t:"POP YOURS 2026 — SPECIAL ACT",m:"2026.04.04 · 幕張メッセ",d:"Tohji 최종 공연. 2025.10.18 은퇴 선언.",tr:[]}
+]}
+];
+
+// ── Build DOM ──
+const c=document.getElementById('D');
+D.forEach(y=>{
+  const s=document.createElement('div');
+  s.className='yr';
+  s.innerHTML='<div class="yr-h">'+y.y+'</div>';
+  y.r.forEach(r=>{
+    let cl='cd';
+    if(r.tc==='dl')cl+=' dl';
+    else if(r.tc==='sc')cl+=' sc';
+    else if(r.tc==='un'||r.tc==='lv')cl+=' un';
+    let art='';
+    if(r.a&&A[r.a])art='<img class="ar" src="'+A[r.a]+'" alt="" loading="lazy">';
+    else{let ic='ic ';if(r.ic==='sc')ic+='ic-sc';else if(r.ic==='dl')ic+='ic-dl';else if(r.ic==='un')ic+='ic-un';else if(r.ic==='lv')ic+='ic-lv';else ic+='ic-ft';art='<div class="'+ic+'">'+(r.ix||'♫')+'</div>';}
+    let bd='',has=r.d||(r.tr&&r.tr.length);
+    if(has){let dd=r.d?'<div class="ds">'+r.d+'</div>':'';let tl='';if(r.tr&&r.tr.length){tl='<ol class="tl">'+r.tr.map(t=>{let nc=t.s==='d'?'nm sk':'nm';let st='';if(t.s==='d')st='<span class="ts ts-d">삭제</span>';else if(t.s==='s')st='<span class="ts ts-s">SC</span>';let ft=t.f?'<span class="ft">'+t.f+'</span>':'';return'<li><span class="tn">'+t.n+'</span><span class="'+nc+'">'+t.v+ft+'</span>'+st+'</li>';}).join('')+'</ol>';}bd='<div class="cb"><div class="cbi">'+dd+tl+'</div></div>';}
+    let chv=has?'<svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>':'';
+    s.innerHTML+='<div class="'+cl+'" data-cat="'+r.tc+'"><div class="ch">'+art+'<div class="ci"><div class="ct">'+r.t+'</div><div class="cm"><span class="tg tg-'+r.tc+'">'+r.tg+'</span><span>'+r.m+'</span></div></div>'+chv+'</div>'+bd+'</div>';
+  });
+  c.appendChild(s);
+});
+
+// ── Accordion (event delegation) ──
+c.addEventListener('click',function(e){
+  const ch=e.target.closest('.ch');if(!ch)return;
+  const cd=ch.parentElement;const cb=cd.querySelector('.cb');if(!cb)return;
+  const on=cd.classList.contains('on');
+  cd.parentElement.querySelectorAll('.cd.on').forEach(x=>{if(x!==cd){x.classList.remove('on');x.querySelector('.cb').style.maxHeight='0';}});
+  if(on){cd.classList.remove('on');cb.style.maxHeight='0';}
+  else{cd.classList.add('on');cb.style.maxHeight=cb.scrollHeight+'px';}
+});
+
+// ── Filter buttons ──
+const fb=document.getElementById('FB');
+const btns=fb.querySelectorAll('button');
+
+// Add counts to each button
+const allCards=c.querySelectorAll('.cd[data-cat]');
+btns.forEach(btn=>{
+  const f=btn.getAttribute('data-f');
+  if(f==='all'){
+    btn.innerHTML=btn.textContent+'<span class="cnt">'+allCards.length+'</span>';
+  }else{
+    const cats=f.split(',');
+    let count=0;
+    allCards.forEach(cd=>{if(cats.includes(cd.getAttribute('data-cat')))count++;});
+    btn.innerHTML=btn.textContent+'<span class="cnt">'+count+'</span>';
+  }
+});
+
+fb.addEventListener('click',function(e){
+  const btn=e.target.closest('button');if(!btn)return;
+  btns.forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  const f=btn.getAttribute('data-f');
+  const cats=f==='all'?null:f.split(',');
+  // close all open cards
+  c.querySelectorAll('.cd.on').forEach(cd=>{cd.classList.remove('on');const cb=cd.querySelector('.cb');if(cb)cb.style.maxHeight='0';});
+  // filter cards
+  allCards.forEach(cd=>{
+    if(!cats||cats.includes(cd.getAttribute('data-cat'))){cd.classList.remove('fhide');}
+    else{cd.classList.add('fhide');}
+  });
+  // hide empty year sections
+  c.querySelectorAll('.yr').forEach(yr=>{
+    const visible=yr.querySelectorAll('.cd[data-cat]:not(.fhide)');
+    yr.classList.toggle('hide',visible.length===0);
+  });
+  // scroll to top of discography
+  c.scrollIntoView({behavior:'smooth',block:'start'});
+});
+// ── AUTO UPDATE PANEL (Spotify + SoundCloud via /api/update) ──
+(function(){
+const panelCSS=document.createElement('style');
+panelCSS.textContent=`
+.upd-btn{position:fixed;bottom:24px;right:24px;z-index:999;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#a0a0c0,#6868a0);border:none;color:#08080e;font-size:20px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.5);transition:transform .2s}
+.upd-btn:hover{transform:scale(1.1)}
+.upd-modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:16px}
+.upd-modal.show{display:flex}
+.upd-box{background:#0c0c18;border:1px solid #202038;border-radius:14px;width:100%;max-width:560px;max-height:85vh;overflow-y:auto;padding:clamp(18px,4vw,28px)}
+.upd-box h3{font-family:'DM Mono',monospace;font-size:16px;color:#c0c0e0;margin-bottom:14px}
+.upd-status{margin-top:14px;font-size:12px;color:#5a5a78;line-height:1.7;white-space:pre-wrap;max-height:300px;overflow-y:auto}
+.upd-status .found{color:#70a898;font-weight:600}
+.upd-status .err{color:#a06070}
+.upd-run{width:100%;padding:12px;border:none;border-radius:8px;background:linear-gradient(135deg,#8080b0,#5858a0);color:#fff;font-weight:600;font-size:14px;cursor:pointer;transition:opacity .2s;font-family:'Noto Sans KR',sans-serif}
+.upd-run:disabled{opacity:.4;cursor:not-allowed}
+.upd-run:hover:not(:disabled){opacity:.85}
+.upd-card{background:#10101c;border:1px solid #202038;border-radius:8px;padding:12px;margin-bottom:8px;display:flex;gap:12px;align-items:center}
+.upd-card img{width:48px;height:48px;border-radius:6px;object-fit:cover}
+.upd-card-info{flex:1;min-width:0}
+.upd-card-info b{font-size:13px;color:#d0d0de;display:block}
+.upd-card-info small{font-size:10px;color:#5a5a78}
+.upd-add{padding:6px 14px;border:1px solid #4040608a;border-radius:6px;background:#1a1a2e;color:#b0b0c8;font-size:11px;cursor:pointer;white-space:nowrap}
+.upd-add:hover{background:#252540}
+.upd-add.done{background:#0a1a14;color:#70a898;border-color:#2a4038;pointer-events:none}
+`;
+document.head.appendChild(panelCSS);
+
+const fb2=document.createElement('button');
+fb2.className='upd-btn';fb2.textContent='🔄';fb2.title='신곡 업데이트 확인';
+document.body.appendChild(fb2);
+
+const modal=document.createElement('div');modal.className='upd-modal';
+modal.innerHTML=`<div class="upd-box" style="position:relative">
+<button style="position:absolute;top:14px;right:14px;background:none;border:none;color:#5a5a78;font-size:20px;cursor:pointer" onclick="this.closest('.upd-modal').classList.remove('show')">&times;</button>
+<h3>🔄 Spotify + SoundCloud 자동 업데이트</h3>
+<p style="font-size:11px;color:#5a5a78;margin-bottom:14px">Vercel 환경변수에 SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET 설정 필요</p>
+<button class="upd-run" id="upd-go">신곡 확인</button>
+<div class="upd-status" id="upd-log"></div>
+<div id="upd-res" style="margin-top:12px"></div>
+</div>`;
+document.body.appendChild(modal);
+
+fb2.addEventListener('click',()=>modal.classList.add('show'));
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('show');});
+
+// collect existing track names
+function getExisting(){
+  const ex=new Set();
+  D.forEach(yr=>yr.r.forEach(r=>{ex.add(r.t.toLowerCase());r.tr.forEach(t=>ex.add(t.v.toLowerCase()));}));
+  return ex;
+}
+
+document.getElementById('upd-go').addEventListener('click',async function(){
+  const log=document.getElementById('upd-log');
+  const res=document.getElementById('upd-res');
+  this.disabled=true;this.textContent='검색 중...';
+  log.innerHTML='';res.innerHTML='';
+  const existing=getExisting();
+
+  try{
+    log.innerHTML='🟢 Spotify 확인 중...\n';
+    const sp=await fetch('/api/update');
+    if(!sp.ok)throw new Error('API 응답 오류 '+sp.status);
+    const data=await sp.json();
+    if(data.error){log.innerHTML+=`<span class="err">❌ ${data.error}</span>\n`;this.disabled=false;this.textContent='다시 확인';return;}
+
+    const newTracks=[];
+    // Spotify results
+    if(data.spotify){
+      data.spotify.forEach(item=>{
+        const name=item.name.toLowerCase();
+        if(!existing.has(name)){
+          newTracks.push({title:item.name,artist:item.artists,date:item.date,type:item.type,artwork:item.artwork,src:'spotify'});
+        }
+      });
+    }
+    // SoundCloud results
+    if(data.soundcloud){
+      data.soundcloud.forEach(item=>{
+        const name=item.name.toLowerCase();
+        if(!existing.has(name)){
+          newTracks.push({title:item.name,date:item.date,type:'sc',artwork:item.artwork,src:'soundcloud'});
+        }
+      });
+    }
+
+    log.innerHTML+=`✅ Spotify: ${data.spotify?.length||0}개 릴리즈 확인\n`;
+    log.innerHTML+=`✅ SoundCloud: ${data.soundcloud?.length||0}개 트랙 확인\n`;
+
+    if(!newTracks.length){
+      log.innerHTML+='<span class="found">✨ 새 곡 없음 — 최신 상태입니다</span>\n';
+    }else{
+      log.innerHTML+=`<span class="found">🎵 ${newTracks.length}개 신곡 발견!</span>\n`;
+      newTracks.forEach(t=>{
+        const card=document.createElement('div');card.className='upd-card';
+        card.innerHTML=`${t.artwork?`<img src="${t.artwork}" onerror="this.style.display='none'">`:''}
+        <div class="upd-card-info"><b>${t.title}</b><small>${t.date||'?'} · ${t.artist||'Tohji'} · ${t.src}</small></div>`;
+        res.appendChild(card);
+      });
+    }
+  }catch(e){
+    log.innerHTML+=`<span class="err">❌ ${e.message}\n로컬에서는 작동하지 않습니다. Vercel 배포 후 사용해주세요.</span>`;
+  }
+  this.disabled=false;this.textContent='다시 확인';
+});
+})();
+</script>
+</body>
+</html>

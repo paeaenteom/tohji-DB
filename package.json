@@ -1,0 +1,6 @@
+{
+  "name": "tohji-discography",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tohji Complete Discography — Auto-updating via Spotify API"
+}
