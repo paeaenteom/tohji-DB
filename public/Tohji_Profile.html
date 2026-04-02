@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tohji — Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#04040a;--card:#0a0a14;--border:#151528;
+--silver:#c8c8e0;--silver2:#8888a8;--ghost:#3a3a52;
+--lavender:#8070b0;--green:#70a898;--amber:#c89060;--gold:#b8a878;
+--rose:#a06070;--text:#d0d0de;--dim:#5a5a78;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
+::selection{background:var(--lavender);color:#fff}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:60px 20px}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(100,100,160,.08),transparent 70%)}
+.hero-inner{position:relative;z-index:1;max-width:800px;text-align:center}
+.hero-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;border:2px solid var(--border);margin:0 auto 32px;display:block;filter:grayscale(.3) contrast(1.1);transition:filter .6s}
+.hero-photo:hover{filter:grayscale(0) contrast(1)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(48px,10vw,88px);letter-spacing:.08em;background:linear-gradient(135deg,var(--silver),var(--silver2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1;margin-bottom:8px}
+.hero .sub{font-family:'DM Mono',monospace;font-size:12px;color:var(--dim);letter-spacing:.15em;text-transform:uppercase;margin-bottom:36px}
+.hero .tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(16px,3vw,22px);color:var(--silver2);max-width:600px;margin:0 auto 40px;line-height:1.6}
+.hero .links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero .links a{font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:20px;transition:all .3s}
+.hero .links a:hover{color:var(--silver);border-color:var(--silver2)}
+
+/* Back button */
+.back{position:fixed;top:16px;left:16px;z-index:99;font-family:'DM Mono',monospace;font-size:11px;color:var(--dim);text-decoration:none;padding:8px 16px;border:1px solid var(--border);border-radius:20px;background:rgba(4,4,10,.85);backdrop-filter:blur(10px);transition:all .3s}
+.back:hover{color:var(--silver);border-color:var(--silver2)}
+
+/* Scroll indicator */
+.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:10px;color:var(--ghost);letter-spacing:.2em;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:.8}}
+
+/* Sections */
+.section{max-width:760px;margin:0 auto;padding:80px 24px}
+.section h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,5vw,42px);color:var(--silver);margin-bottom:8px;letter-spacing:.04em}
+.section .label{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.2em;text-transform:uppercase;margin-bottom:32px;display:block}
+.section p{margin-bottom:20px;color:var(--text);font-size:15px}
+.section p em{font-style:italic;color:var(--silver2)}
+
+/* Divider */
+.divider{max-width:760px;margin:0 auto;padding:0 24px}
+.divider hr{border:none;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+
+/* Info Grid */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:24px 0}
+.info-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px}
+.info-item .k{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.info-item .v{font-size:14px;color:var(--silver);font-weight:400}
+
+/* Timeline */
+.tl{position:relative;padding-left:28px;margin:24px 0}
+.tl::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:1px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:28px}
+.tl-item::before{content:'';position:absolute;left:-24px;top:6px;width:10px;height:10px;border-radius:50%;border:1px solid var(--ghost);background:var(--bg)}
+.tl-item.highlight::before{background:var(--lavender);border-color:var(--lavender)}
+.tl-item .yr{font-family:'DM Mono',monospace;font-size:11px;color:var(--amber);margin-bottom:2px}
+.tl-item .ev{font-size:14px;color:var(--text)}
+.tl-item .ev b{color:var(--silver);font-weight:600}
+
+/* Quote */
+.quote{position:relative;padding:28px 28px 28px 36px;margin:32px 0;background:var(--card);border-left:2px solid var(--lavender);border-radius:0 8px 8px 0}
+.quote p{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--silver);line-height:1.7;margin-bottom:8px}
+.quote cite{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);font-style:normal;letter-spacing:.1em}
+
+/* Sound Evolution */
+.evo{display:grid;gap:16px;margin:24px 0}
+.evo-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;transition:border-color .3s}
+.evo-item:hover{border-color:var(--ghost)}
+.evo-item .era{font-family:'DM Mono',monospace;font-size:11px;color:var(--amber);margin-bottom:4px}
+.evo-item h3{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--silver);font-weight:400;margin-bottom:8px}
+.evo-item p{font-size:13px;color:var(--dim);line-height:1.6;margin:0}
+
+/* Collab Tags */
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.tag{font-family:'DM Mono',monospace;font-size:11px;padding:6px 14px;border-radius:20px;border:1px solid var(--border);color:var(--dim);transition:all .3s}
+.tag.core{border-color:var(--green);color:var(--green)}
+.tag.intl{border-color:var(--lavender);color:var(--lavender)}
+.tag.prod{border-color:var(--amber);color:var(--amber)}
+
+/* Retirement section */
+.retirement{background:linear-gradient(180deg,transparent,rgba(100,80,120,.04),transparent);padding:80px 24px}
+.retirement .inner{max-width:760px;margin:0 auto}
+
+/* Footer */
+.footer{text-align:center;padding:60px 24px 40px;font-family:'DM Mono',monospace;font-size:10px;color:var(--ghost);letter-spacing:.15em}
+.footer a{color:var(--dim);text-decoration:none}
+.footer a:hover{color:var(--silver)}
+
+/* Fade-in */
+.fade{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}
+.fade.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<a href="javascript:history.back()" class="back">← 디스코그래피</a>
+
+<!-- HERO -->
+<div class="hero">
+<div class="hero-inner">
+<img class="hero-photo" src="https://i.scdn.co/image/ab6761610000e5ebdbb5b40fb469551fbb65465f" alt="Tohji">
+<h1>TOHJI</h1>
+<div class="sub">井原悠希 · 1996 · London → Tokyo · 2017–2026</div>
+<div class="tagline">"나는 뮤지션 타입의 뮤지션이 아니야. 기타도 피아노도 안 쳐. 소리를 시인처럼 듣지 — 샘플링해서 좋으면, 그걸로 됐어. 음악은 그냥 거대한 시(詩)야."</div>
+<div class="links">
+<a href="https://open.spotify.com/artist/7j7kL8K4GE1z5Cdxl7ucBF" target="_blank">Spotify</a>
+<a href="https://soundcloud.com/11_tohji_11" target="_blank">SoundCloud</a>
+<a href="https://www.instagram.com/_tohji_/" target="_blank">Instagram</a>
+<a href="https://www.youtube.com/@tohji" target="_blank">YouTube</a>
+<a href="https://x.com/_tohji_" target="_blank">X</a>
+</div>
+</div>
+<div class="scroll-hint">SCROLL ↓</div>
+</div>
+
+<!-- BASIC INFO -->
+<div class="section fade">
+<h2>프로필</h2>
+<span class="label">Basic Information</span>
+<div class="info-grid">
+<div class="info-item"><div class="k">본명</div><div class="v">이하라 유키 (井原悠希)</div></div>
+<div class="info-item"><div class="k">활동명</div><div class="v">Tohji (トージ)</div></div>
+<div class="info-item"><div class="k">출생</div><div class="v">1996 · 런던, 영국</div></div>
+<div class="info-item"><div class="k">성장</div><div class="v">요코하마·도쿄 교외 (뉴타운)</div></div>
+<div class="info-item"><div class="k">활동 기간</div><div class="v">2017 – 2026</div></div>
+<div class="info-item"><div class="k">그룹</div><div class="v">Mall Boyz (with gummyboy)</div></div>
+<div class="info-item"><div class="k">장르</div><div class="v">Cloud Rap · Trap · Hyperpop · Industrial</div></div>
+<div class="info-item"><div class="k">레이블</div><div class="v">CANTEEN Co. / Eastern Margins</div></div>
+<div class="info-item"><div class="k">패션 브랜드</div><div class="v">VANILLANI (with DETTO K, 2021~)</div></div>
+<div class="info-item"><div class="k">매니지먼트</div><div class="v">CANTEEN Co., Ltd.</div></div>
+<div class="info-item"><div class="k">Spotify 청취자</div><div class="v">~110K monthly</div></div>
+<div class="info-item"><div class="k">인스피레이션</div><div class="v">비틀즈 · Soulja Boy · 키타노 다케시 · 공항 · 쇼핑몰 · 파워레인저</div></div>
+</div>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- BIO -->
+<div class="section fade">
+<h2>바이오그래피</h2>
+<span class="label">Biography</span>
+<p>1996년 런던에서 태어나 3살에 일본으로 건너간 <em>이하라 유키</em>는 도쿄와 요코하마 사이의 뉴타운 — 쇼핑몰과 똑같이 생긴 집들이 줄지어 선 교외 — 에서 자랐다. 고등학교를 중퇴하고 1년간 방에서 영화를 보며 위스키를 마시던 시간을 거쳐, 무사시노 미술대학에 입학하며 음악을 시작했다.</p>
+<p>2017년 SoundCloud에 첫 곡을 올리고, AbemaTV 오디션 프로그램 <em>ラップスタア誕生</em>에 출연해 결승까지 진출하며 이름을 알렸다. 같은 해 시부야 WWW에서 "래퍼가 아닌 아이들이 직접 만든 최초의 랩 파티"를 열기 시작했다.</p>
+<p>2018년 래퍼 <em>gummyboy</em>와 <em>Mall Boyz</em>를 결성. "우리 세대 전에 일본 래퍼들은 다 도쿄나 오사카 출신이라는 미국식 홈타운 프라이드를 흉내 냈어. 그건 나한테 진짜가 아니야. 하지만 쇼핑몰은 진짜야." 이 선언은 교외 세대의 문화적 정체성을 규정하는 매니페스토가 되었다.</p>
+<p>2019년 <em>"Rodeo"</em>가 SoundCloud Japan 전체 장르 1위를 기록하고, 첫 믹스테이프 <em>angel</em>을 발표. 20분짜리 9곡의 드리미한 사운드스케이프는 새벽 폐장 직전 빈 쇼핑몰을 걸어가는 느낌이었다. 신주쿠에서 열린 무료 콘서트에 관객이 넘쳐 공원으로 옮겼다가, 한 곡 만에 경찰에 의해 중단되기도 했다.</p>
+<p>2020년 프로듀서 MURVSAKI가 미성년자 성범죄로 체포되면서, angel 수록곡 대부분이 스트리밍에서 삭제됐다. Tohji와 gummyboy는 해당 곡들의 수익을 성폭력 피해자 지원 단체에 기부하고 활동을 일시 중단했다. 이 위기에서 그는 완전히 새로운 사운드로 재탄생한다.</p>
+<p>2021년 <em>Loota</em>·<em>Brodinski</em>(카니예 웨스트 <em>Yeezus</em> 공동 프로듀서)와 함께 <em>KUUGA</em>를 발표 — 인더스트리얼 메탈적 비트, 산성 신스, 승려의 챈트를 결합한 15분짜리 8곡. 패션 브랜드 <em>VANILLANI</em>도 디자이너 DETTO K와 공동 론칭했다.</p>
+<p>2022년 믹스테이프 <em>t-mix</em>로 하이퍼팝 씬과 합류 — Drain Gang의 <em>Bladee</em>, <em>yeule</em>, <em>Mechatok</em> 등과 협업하며 V Magazine은 "도쿄의 새로운 하이퍼팝 파워하우스"라 칭했다. 같은 해 <em>Mura Masa</em>의 앨범에도 피처링.</p>
+<p>2023년 <em>Mall Tape 2</em> 발표, 도쿄 역대 최대 규모의 <em>Boiler Room</em> 이벤트를 개최해 1,500명의 관객을 모았고, TikTok에서 바이럴. SXSW, 소나르 바르셀로나에 출연하며 국제적 입지를 확대했다.</p>
+<p>2024년 첫 전곡 영어 싱글 <em>"Phenomeno"</em>를 UK 레이블 Eastern Margins에서 발표. POP YOURS 2024에서 헤드라이닝 후 아레나 공연을 예고. 유럽·북미 투어를 완수했다.</p>
+<p>2025년 2월 2일 <em>요코하마 ぴあアリーナMM</em>에서 1만 석 솔로 아레나 공연. 34곡 세트리스트로 전 커리어를 관통했다. 앨범 <em>zero-one</em>과 <em>zero-two</em>를 연달아 발표하고, 6월 20일 아레나 공연 다큐멘터리 영화 <em>『劇場版 Tohji Pia Arena』</em>가 전국 이온시네마에서 2주간 한정 상영.</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- SOUND EVOLUTION -->
+<div class="section fade">
+<h2>음악 스타일 변천</h2>
+<span class="label">Sound Evolution</span>
+<div class="evo">
+<div class="evo-item">
+<div class="era">2017–2018</div>
+<h3>SoundCloud Trap Origins</h3>
+<p>로파이 트랩, 미가공 에너지, Future/Drake 영향. 교외의 밤을 자동차 안에서 보내던 시절의 원초적 사운드. 1996 EP, "I'm a Godzilla Duh" 등.</p>
+</div>
+<div class="evo-item">
+<div class="era">2019</div>
+<h3>angel — 교외의 멜랑콜리</h3>
+<p>멜로딕, 에테리얼, 드리미. MURVSAKI 프로덕션 위에 영·일 바이링걸 랩. 폐장 직전 쇼핑몰의 잔향. "Rodeo" SC Japan 1위, angel 전국 투어.</p>
+</div>
+<div class="evo-item">
+<div class="era">2021</div>
+<h3>KUUGA — 인더스트리얼 리버스</h3>
+<p>Brodinski의 하드코어 일렉트로닉, Loota의 보컬 레이어링. 에시드 신스, 산업적 노이즈, 승려 챈트. 15분 8곡의 파괴적 밀도.</p>
+</div>
+<div class="evo-item">
+<div class="era">2022</div>
+<h3>t-mix — 하이퍼팝 연대</h3>
+<p>Bladee(Drain Gang), yeule, Mechatok, Palmistry 참여. PC Music 인접 유로트랜스, 버블검 베이스. "차에서 들었을 때 기분 좋은 소리에 집중했다."</p>
+</div>
+<div class="evo-item">
+<div class="era">2024</div>
+<h3>medium rare — 런던 세션</h3>
+<p>Dark0(YEAR0001) 프로덕션. 전곡 영어 "Phenomeno", 프로즌 레인. UK 베이스 뮤직과 일본 감성의 교차점.</p>
+</div>
+<div class="evo-item">
+<div class="era">2025</div>
+<h3>zero — 시네마틱 고별</h3>
+<p>"NEO BASS-MUSIC" 선언. 인더스트리얼 베이스, 에일리언 텍스처, 과정으로서의 음악. "스케치를 보여주는 거야. 완성작의 가치를 의심해."</p>
+</div>
+</div>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- QUOTES -->
+<div class="section fade">
+<h2>인터뷰 발언</h2>
+<span class="label">Notable Quotes</span>
+
+<div class="quote">
+<p>"여러 나라를 여행한 후 깨달았어 — 일본에는 앰비언트 바이브가 있어. 뭔가 감정적인 게 있어."</p>
+<cite>— Chorareii 인터뷰</cite>
+</div>
+
+<div class="quote">
+<p>"신비로운 척하는 게 아니야. 그냥 나야."</p>
+<cite>— Dazed (2022)</cite>
+</div>
+
+<div class="quote">
+<p>"옛날에는 클럽에서 다들 New Era 모자 쓰고 미국인 흉내를 냈어. 평생 남 따라하면서 살 수 없었어. '우리'를 위한, 개인적인 뭔가를 만들고 싶었어."</p>
+<cite>— Chorareii 인터뷰</cite>
+</div>
+
+<div class="quote">
+<p>"라이브 공연은 내 인생에서 가장 행복한 순간이야. 공간의 공기가 될 수 있어. 인간으로 거기 있으면서 동시에 공기야. 날고 있어, 공간에 퍼지면서."</p>
+<cite>— Chorareii 인터뷰</cite>
+</div>
+
+<div class="quote">
+<p>"키타노 다케시, 그는 거대해, 전부야. 래퍼들보다 더 래퍼야!"</p>
+<cite>— 032c 인터뷰</cite>
+</div>
+
+<div class="quote">
+<p>"신선함. 새로운 걸 만지고, 새로운 걸 찾는 것. 그게 나한테 최고의 느낌이야. 새로운 나를 찾는 것."</p>
+<cite>— 032c (2025)</cite>
+</div>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- COLLABORATORS -->
+<div class="section fade">
+<h2>콜라보레이터 네트워크</h2>
+<span class="label">Collaborator Network</span>
+
+<p style="font-size:13px;color:var(--dim);margin-bottom:16px"><span style="color:var(--green)">●</span> 코어 서클 &nbsp; <span style="color:var(--lavender)">●</span> 인터내셔널 &nbsp; <span style="color:var(--amber)">●</span> 프로듀서</p>
+
+<div class="tags">
+<span class="tag core">gummyboy</span>
+<span class="tag core">Loota</span>
+<span class="tag core">kZm</span>
+<span class="tag core">釈迦坊主</span>
+<span class="tag core">Elle Teresa</span>
+<span class="tag core">Le Makeup</span>
+<span class="tag core">Fuji Taito</span>
+<span class="tag core">kamui</span>
+<span class="tag core">JUMADIBA</span>
+<span class="tag core">E.O.U</span>
+<span class="tag intl">Bladee</span>
+<span class="tag intl">yeule</span>
+<span class="tag intl">Palmistry</span>
+<span class="tag intl">Mura Masa</span>
+<span class="tag intl">Namasenda</span>
+<span class="tag intl">Bloodz Boi</span>
+<span class="tag intl">Himera</span>
+<span class="tag intl">Malibu</span>
+<span class="tag prod">Brodinski</span>
+<span class="tag prod">Mechatok</span>
+<span class="tag prod">Banvox</span>
+<span class="tag prod">Dark0</span>
+<span class="tag prod">Thrilliam Angels</span>
+<span class="tag prod">stei</span>
+<span class="tag prod">Big Animal Theory</span>
+<span class="tag prod">DETTO K</span>
+</div>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- TIMELINE -->
+<div class="section fade">
+<h2>커리어 타임라인</h2>
+<span class="label">Career Timeline</span>
+<div class="tl">
+<div class="tl-item"><div class="yr">2017</div><div class="ev">SoundCloud 첫 업로드 · <b>1996</b> EP · <b>"I'm a Godzilla Duh"</b> 데뷔 싱글 · ラップスタア誕生 결승 진출 · 시부야 WWW 정기 파티 시작</div></div>
+<div class="tl-item"><div class="yr">2018</div><div class="ev"><b>Mall Boyz</b> 결성 (with gummyboy) · <b>Mall Tape</b> 발표 · 도쿄 교외 씬의 중심으로 부상</div></div>
+<div class="tl-item highlight"><div class="yr">2019</div><div class="ev"><b>"Rodeo"</b> SoundCloud Japan 전체 1위 · <b>angel</b> 믹스테이프 · 시부야 WWW 550석 매진 · 신주쿠 무료 콘서트(경찰 중단) · ULTRA KOREA · NTS Radio 데뷔</div></div>
+<div class="tl-item"><div class="yr">2020</div><div class="ev"><b>"Oreo"</b> + Mura Masa·Malibu 리믹스 · kZm "Teenage Vibe" TikTok 히트 · MURVSAKI 사건 발생</div></div>
+<div class="tl-item highlight"><div class="yr">2021</div><div class="ev"><b>KUUGA</b> (with Loota & Brodinski) · MURVSAKI 곡 전면 삭제·수익 기부 · <b>VANILLANI</b> 브랜드 론칭 · "My Swag" · "echo"</div></div>
+<div class="tl-item highlight"><div class="yr">2022</div><div class="ev"><b>t-mix</b> (Bladee, yeule, Mechatok 참여) · Mura Masa "slomo" 피처링 · <b>u-ha</b> 파티 시리즈 시작 · Dazed 100 선정</div></div>
+<div class="tl-item"><div class="yr">2023</div><div class="ev"><b>Mall Tape 2</b> · Boiler Room Tokyo 1,500명 바이럴 · SXSW · Sónar Barcelona · "Freesia" (Loota × Le Makeup)</div></div>
+<div class="tl-item"><div class="yr">2024</div><div class="ev"><b>"Phenomeno"</b> (첫 전곡 영어) · <b>medium rare</b> EP · POP YOURS 헤드라인 · 유럽·북미 투어 · "Tenkasu" · 아레나 공연 발표</div></div>
+<div class="tl-item highlight"><div class="yr">2025.02.02</div><div class="ev"><b>ぴあアリーナMM</b> 1만 석 솔로 아레나 공연 · 34곡 세트리스트</div></div>
+<div class="tl-item"><div class="yr">2025.03–05</div><div class="ev"><b>zero-one</b> · <b>zero-two</b> 연속 발표 · "Jungle人" · Mechatok "200"</div></div>
+<div class="tl-item"><div class="yr">2025.06.20</div><div class="ev"><b>劇場版 Tohji Pia Arena</b> 전국 이온시네마 한정 상영</div></div>
+<div class="tl-item highlight"><div class="yr">2025.10.18</div><div class="ev">POP YOURS OSAKA에서 <b>은퇴 선언</b> — "2026년을 가지고 음악활동을 은퇴합니다"</div></div>
+<div class="tl-item highlight"><div class="yr">2026.04.04</div><div class="ev"><b>POP YOURS 2026 SPECIAL ACT</b> · 幕張メッセ · 최종 공연 · "u-ha neo stage" 큐레이션</div></div>
+</div>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- RETIREMENT -->
+<div class="retirement">
+<div class="inner fade">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,5vw,42px);color:var(--silver);margin-bottom:8px">은퇴</h2>
+<span class="label" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.2em;text-transform:uppercase;margin-bottom:32px;display:block">The Farewell · 2025.10.18</span>
+
+<p style="font-size:15px;margin-bottom:20px">2025년 10월 18일, 오사카 캐슬 홀에서 열린 POP YOURS OSAKA 무대 위에서 Tohji는 은퇴를 선언했다. 그의 MC 전문은 우화이자 고별사였다 —</p>
+
+<div class="quote" style="border-left-color:var(--rose)">
+<p>"옛날에 나는 깊은 바다 밑바닥에 있는 것 같았어. 차갑고, 어둡고, 아무도 없고. 몸은 쓸데없이 크고 무겁고 — 등에 이끼가 낀 거대한 고래처럼. 하지만 위에서 빛이 보였고, 바다 밑바닥에서 떠오르면서 온갖 물고기들을 만났어... 파도에 휘둘리는 동안 등의 이끼가 씻겨 나가고, 군더더기가 벗겨지고, 어느새 돌고래가 되어 있었어."</p>
+<cite>— Tohji, POP YOURS OSAKA MC (2025.10.18)</cite>
+</div>
+
+<div class="quote" style="border-left-color:var(--rose)">
+<p>"나는 나라는 배에서 내린 적이 없어 — 한 번도. 태어난 날부터 나만의 왕도를 걸어왔어."</p>
+<cite>— Tohji, 은퇴 선언 마지막 말</cite>
+</div>
+
+<p style="font-size:15px;margin-bottom:20px">최종 공연은 2026년 4월 4일, <em>POP YOURS 2026 SPECIAL ACT</em>. 幕張メッセ 전시홀 1–6, 페스티벌 사상 최초 3일간 확대 개최의 Day 2. 그의 u-ha 파티 컨셉도 "u-ha neo stage"로 마지막을 장식한다.</p>
+
+<p style="font-size:15px;color:var(--dim)">고래는 돌고래가 되었고, 돌고래는 수평선 너머로 헤엄친다. 쇼핑몰에서 길을 잃었던 아이는 — 20년 뒤 그 쇼핑몰 영화관에서 자기 영화를 상영했다.</p>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<a href="javascript:history.back()">← 디스코그래피로 돌아가기</a>
+<br><br>
+TOHJI COMPLETE ARCHIVE · 2026
+</div>
+
+<script>
+// Fade-in on scroll
+const obs=new IntersectionObserver((entries)=>{
+entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+},{threshold:0.15});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
