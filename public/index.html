@@ -98,27 +98,41 @@ body{background:var(--bg);color:var(--tx);font-family:'Noto Sans KR',sans-serif;
 .wh-err{color:#a06070;font-size:12px;margin-top:8px;display:none}
 .wh-set-btn{position:fixed;bottom:24px;right:80px;z-index:999;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#5865F2,#4752c4);border:none;color:#fff;font-size:18px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.5);transition:transform .2s}
 .wh-set-btn:hover{transform:scale(1.1)}
+/* ── language switcher ── */
+.lang-sw{display:flex;gap:4px}
+.lang-btn{font-family:'DM Mono',monospace;font-size:11px;padding:4px 10px;border-radius:12px;border:1px solid var(--bdr);background:transparent;color:var(--dim);cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent}
+.lang-btn.on{background:linear-gradient(135deg,#a0a0c0,#7070a0);color:#08080e;border-color:#8888a8}
+.lang-btn:active{transform:scale(.92)}
+/* ── link popup ── */
+.nm{cursor:pointer;position:relative}
+.nm:hover{text-decoration:underline;text-decoration-color:#5a5a78;text-underline-offset:3px}
+.lk-pop{position:absolute;bottom:100%;left:0;z-index:900;background:#16162a;border:1px solid #2a2a44;border-radius:10px;padding:8px;display:flex;gap:6px;box-shadow:0 8px 30px rgba(0,0,0,.7);animation:lkIn .15s ease}
+@keyframes lkIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.lk-a{display:flex;align-items:center;gap:5px;padding:6px 10px;border-radius:8px;text-decoration:none;font-family:'DM Mono',monospace;font-size:10px;color:#c8c8e0;background:#1e1e36;border:1px solid #2a2a44;transition:all .15s;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.lk-a:hover{background:#2a2a50;border-color:#5a5a88}
+.lk-a svg{width:14px;height:14px;flex-shrink:0}
+.lk-sp{color:#1DB954}.lk-am{color:#FA2D48}.lk-ym{color:#FF0000}.lk-sc{color:#FF5500}.lk-yt{color:#FF0000}
 
 </style>
 </head>
 <body>
 <div class="wrap">
-<div class="hd"><h1>TOHJI</h1><small>Complete Discography · 2015 – 2026</small><a href="Tohji_Profile.html" style="display:inline-block;margin-top:10px;font-family:'DM Mono',monospace;font-size:11px;color:#5a5a78;text-decoration:none;padding:6px 16px;border:1px solid #202038;border-radius:20px;transition:all .3s" onmouseover="this.style.color='#c8c8e0';this.style.borderColor='#8888a8'" onmouseout="this.style.color='#5a5a78';this.style.borderColor='#202038'">프로필 →</a></div>
-<div class="leg">
-<span><i style="background:var(--green)"></i>공개</span><span><i style="background:#a06070"></i>삭제</span>
-<span><i style="background:var(--orange)"></i>사클한정</span><span><i style="background:var(--ghost)"></i>미발매</span>
-<span><i style="background:var(--gold)"></i>팬보존</span>
+<div class="hd"><h1>TOHJI</h1><small id="hd-sub">Complete Discography · 2015 – 2026</small><div style="display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap"><a href="Tohji_Profile.html" id="prof-link" style="display:inline-block;font-family:'DM Mono',monospace;font-size:11px;color:#5a5a78;text-decoration:none;padding:6px 16px;border:1px solid #202038;border-radius:20px;transition:all .3s" onmouseover="this.style.color='#c8c8e0';this.style.borderColor='#8888a8'" onmouseout="this.style.color='#5a5a78';this.style.borderColor='#202038'">프로필 →</a><div class="lang-sw" id="langSw"><button class="lang-btn on" data-lang="ko">한</button><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="ja">日</button></div></div></div>
+<div class="leg" id="leg">
+<span><i style="background:var(--green)"></i><em data-i="pub">공개</em></span><span><i style="background:#a06070"></i><em data-i="del">삭제</em></span>
+<span><i style="background:var(--orange)"></i><em data-i="sco">사클한정</em></span><span><i style="background:var(--ghost)"></i><em data-i="unr">미발매</em></span>
+<span><i style="background:var(--gold)"></i><em data-i="fan">팬보존</em></span>
 </div>
-<div class="st"><div><b>110+</b><span>총 트랙</span></div><div><b>11</b><span>앨범/EP</span></div><div><b>7</b><span>삭제곡</span></div><div><b>10+</b><span>SC한정</span></div></div>
+<div class="st"><div><b>110+</b><span data-i="stTotal">총 트랙</span></div><div><b>11</b><span data-i="stAlbum">앨범/EP</span></div><div><b>7</b><span data-i="stDel">삭제곡</span></div><div><b>10+</b><span data-i="stSc">SC한정</span></div></div>
 <div class="fb" id="FB">
-<button class="on" data-f="all">전체</button>
-<button data-f="al,ep,mx">앨범/EP</button>
-<button data-f="sg">싱글</button>
+<button class="on" data-f="all" data-i="fAll">전체</button>
+<button data-f="al,ep,mx" data-i="fAlbum">앨범/EP</button>
+<button data-f="sg" data-i="fSingle">싱글</button>
 <button data-f="mb">Mall Boyz</button>
-<button data-f="ft">피처링</button>
-<button data-f="sc">사클한정</button>
-<button data-f="dl">삭제</button>
-<button data-f="un,lv">미발매/라이브</button>
+<button data-f="ft" data-i="fFeat">피처링</button>
+<button data-f="sc" data-i="fSc">사클한정</button>
+<button data-f="dl" data-i="fDel">삭제</button>
+<button data-f="un,lv" data-i="fUn">미발매/라이브</button>
 </div>
 <div id="D"></div>
 </div>
@@ -215,7 +229,11 @@ const A={
 "sc_fuckitup":"https://i1.sndcdn.com/artworks-000463433589-ve41tc-t500x500.jpg",
 "sc_omwog":"https://i1.sndcdn.com/artworks-000529911297-8zz3uq-t500x500.jpg",
 "sc_rodeo":"https://i1.sndcdn.com/artworks-000501376719-yvsua5-t500x500.jpg",
-"sc_dannyas":"https://i1.sndcdn.com/artworks-ZNBQ7d5r4uY9Wo7U-G8H6Hg-t500x500.jpg"
+"sc_dannyas":"https://i1.sndcdn.com/artworks-ZNBQ7d5r4uY9Wo7U-G8H6Hg-t500x500.jpg",
+// newly found SC artworks
+"sc_life":"https://i1.sndcdn.com/artworks-000276580238-aqnkzg-t500x500.jpg",
+"sc_nocoke":"https://i1.sndcdn.com/artworks-000336937608-77srem-t500x500.jpg",
+"sc_iloveyou":"https://i1.sndcdn.com/artworks-s8z8N4zdhiScDafm-YArXVg-t500x500.jpg"
 };
 const D=[
 {y:"2015–16",r:[
@@ -239,7 +257,7 @@ const D=[
 {tg:"피처링",tc:"ft",ic:"ft",ix:"♫",t:"EGO",m:"2017.10.27 · FLOYD · SC Only",d:"ft. Tohji, YONEDA & dp.",tr:[{n:"1",v:"EGO",f:"FLOYD ft. Tohji, YONEDA & dp",s:"s"}]},
 {tg:"피처링",tc:"ft",ic:"ft",ix:"♫",t:"neet",m:"2017.10.27 · Danny Ellison · SC Only",d:"danny died(=Dannyellison) ft. Tohji.",tr:[{n:"1",v:"neet",f:"Danny Ellison ft. Tohji",s:"s"}]},
 {tg:"피처링",tc:"ft",ic:"ft",ix:"♫",t:"Zaire",m:"2017.12.25 · gummyboy · SC Only",d:"gummyboy ft. Tohji.",tr:[{n:"1",v:"Zaire",f:"gummyboy ft. Tohji",s:"s"}]},
-{tg:"피처링",tc:"ft",ic:"ft",ix:"♫",t:"LIFE",m:"2017.12.28 · YURI · SC Only",d:"ft. PAZU, Tohji & AKIRA.",tr:[{n:"1",v:"LIFE",f:"YURI ft. PAZU, Tohji & AKIRA",s:"s"}]}
+{tg:"피처링",tc:"ft",a:"sc_life",t:"LIFE",m:"2017.12.28 · YURI · SC Only",d:"ft. PAZU, Tohji & AKIRA.",tr:[{n:"1",v:"LIFE",f:"YURI ft. PAZU, Tohji & AKIRA",s:"s"}]}
 ]},
 {y:"2018",r:[
 {tg:"사클한정",tc:"sc",a:"nap",t:"nap",m:"2018.01.08 · SC · ~300만",d:"Gokou Kuyt × Tohji × Sleet Mage × Who28.",tr:[{n:"1",v:"nap",f:"ft. Gokou Kuyt, Sleet Mage, Who28",s:"s"}]},
@@ -250,12 +268,12 @@ const D=[
 {tg:"사클한정",tc:"sc",a:"mallscrew",t:"on my own way -mall screw mix-",m:"~2018 · SC",d:"",tr:[{n:"1",v:"on my own way -mall screw mix-",s:"s"}]},
 {tg:"사클한정",tc:"sc",a:"sc_marumori",t:"MARUMORI GOD",m:"2017.05.29 · SC · gummyboy 페이지",d:"gummyboy ft. Tohji. Drake 타입 비트. 최초기 콜라보 중 하나. 공식 릴리즈 없음.",tr:[{n:"1",v:"MARUMORI GOD",f:"gummyboy ft. Tohji",s:"s"}]},
 {tg:"사클한정",tc:"sc",ic:"sc",ix:"☁",t:"Chaos たわごと",m:"~2018.02 · SC · 비공식",d:"ft. DannyBoi, gummyboy, Lil Fuck. MV 촬영 언급(Twitter 2018.02). 현재 접근 불안정.",tr:[{n:"1",v:"Chaos たわごと",f:"ft. DannyBoi, gummyboy, Lil Fuck",s:"s"}]},
-{tg:"삭제",tc:"dl",ic:"dl",ix:"✕",t:"iloveyou / 浮世で荒ぶ風に泣く忍者",m:"~2017 · 삭제 · 팬보존 5.9만",d:"XXXTentacion 'Look at Me!' 리믹스. '부유하는 세계에서 바람에 우는 닌자'. 팬 리업 Hiraris.",tr:[{n:"1",v:"iloveyou / 浮世で荒ぶ風に泣く忍者",f:"XXXTentacion 리믹스",s:"d"}]},
+{tg:"삭제",tc:"dl",a:"sc_iloveyou",t:"iloveyou / 浮世で荒ぶ風に泣く忍者",m:"~2017 · 삭제 · 팬보존 5.9만",d:"XXXTentacion 'Look at Me!' 리믹스. '부유하는 세계에서 바람에 우는 닌자'. 팬 리업 Hiraris.",tr:[{n:"1",v:"iloveyou / 浮世で荒ぶ風に泣く忍자",f:"XXXTentacion 리믹스",s:"d"}]},
 {tg:"사클한정",tc:"sc",a:"sc_didit",t:"Did It",m:"~2018.09 · SC · gummyboy 페이지 · 21.7만",d:"Mall Boyz (prod. stei). Mall Tape 프리뷰로 업로드했으나 최종 트랙리스트에서 탈락.",tr:[{n:"1",v:"Did It",f:"Mall Boyz · prod. stei",s:"s"}]},
 {tg:"피처링",tc:"ft",a:"heisei",t:"Black Hole",m:"2018.11.07 · 釈迦坊主 · HEISEI",d:"",tr:[{n:"10",v:"Black Hole",f:"釈迦坊主 ft. Sleet Mage, Kaine dot Co & Tohji"}]},
 {tg:"MALL BOYZ",tc:"mb",a:"mall1",t:"Mall Tape",m:"2018.12.26 · 4곡",d:"'Higher' YT 500만+, iTunes 힙합 1위.",tr:[{n:"1",v:"Higher"},{n:"2",v:"fuck it up"},{n:"3",v:"mallin'"},{n:"4",v:"Cool running",f:"ft. SEEDA"}]},
 {tg:"사클한정",tc:"sc",ic:"sc",ix:"☁",t:"OH BOY REMIXXX",m:"2018.02.18 · SC Only",d:"Tohji & ETHEREAL LOTUS. Prod. dannyboi. oh boy 리믹스 버전.",tr:[{n:"1",v:"OH BOY REMIXXX",f:"+ ETHEREAL LOTUS · Prod. dannyboi",s:"s"}]},
-{tg:"피처링",tc:"ft",ic:"ft",ix:"♫",t:"NO COKE!",m:"2018.04.19 · Eenzame Jongen · SC Only",d:"lil shawty에 이은 두 번째 콜라보.",tr:[{n:"1",v:"NO COKE!",f:"Eenzame Jongen ft. Tohji",s:"s"}]},
+{tg:"피처링",tc:"ft",a:"sc_nocoke",t:"NO COKE!",m:"2018.04.19 · Eenzame Jongen · SC Only",d:"lil shawty에 이은 두 번째 콜라보.",tr:[{n:"1",v:"NO COKE!",f:"Eenzame Jongen ft. Tohji",s:"s"}]},
 {tg:"피처링",tc:"ft",ic:"ft",ix:"♫",t:"jetski",m:"2018.08.03 · Eenzame Jongen · SC Only",d:"세 번째 콜라보.",tr:[{n:"1",v:"jetski",f:"Eenzame Jongen ft. Tohji",s:"s"}]},
 {tg:"MALL BOYZ",tc:"mb",ic:"mb",ix:"🛒",t:"撃つ hard",m:"2018.12.27 · SC Only · MV 존재",d:"Mall Boyz. Mall Tape 다음 날 업로드.",tr:[{n:"1",v:"撃つ hard",f:"Mall Boyz",s:"s"}]}
 ]},
@@ -354,7 +372,7 @@ D.forEach(y=>{
     if(r.a&&A[r.a])art='<img class="ar" src="'+A[r.a]+'" alt="" loading="lazy">';
     else{let ic='ic ';if(r.ic==='sc')ic+='ic-sc';else if(r.ic==='dl')ic+='ic-dl';else if(r.ic==='un')ic+='ic-un';else if(r.ic==='lv')ic+='ic-lv';else ic+='ic-ft';art='<div class="'+ic+'">'+(r.ix||'♫')+'</div>';}
     let bd='',has=r.d||(r.tr&&r.tr.length);
-    if(has){let dd=r.d?'<div class="ds">'+r.d+'</div>':'';let tl='';if(r.tr&&r.tr.length){tl='<ol class="tl">'+r.tr.map(t=>{let nc=t.s==='d'?'nm sk':'nm';let st='';if(t.s==='d')st='<span class="ts ts-d">삭제</span>';else if(t.s==='s')st='<span class="ts ts-s">SC</span>';let ft=t.f?'<span class="ft">'+t.f+'</span>':'';return'<li><span class="tn">'+t.n+'</span><span class="'+nc+'">'+t.v+ft+'</span>'+st+'</li>';}).join('')+'</ol>';}bd='<div class="cb"><div class="cbi">'+dd+tl+'</div></div>';}
+    if(has){let dd=r.d?'<div class="ds">'+r.d+'</div>':'';let tl='';if(r.tr&&r.tr.length){tl='<ol class="tl">'+r.tr.map(t=>{let nc=t.s==='d'?'nm sk':'nm';let st='';if(t.s==='d')st='<span class="ts ts-d">삭제</span>';else if(t.s==='s')st='<span class="ts ts-s">SC</span>';let ft=t.f?'<span class="ft">'+t.f+'</span>':'';let sq=encodeURIComponent('Tohji '+t.v);return'<li><span class="tn">'+t.n+'</span><span class="'+nc+'" data-q="'+sq+'" data-s="'+(t.s||'')+'">'+t.v+ft+'</span>'+st+'</li>';}).join('')+'</ol>';}bd='<div class="cb"><div class="cbi">'+dd+tl+'</div></div>';}
     let chv=has?'<svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>':'';
     let wbtn='<button class="wh-send" title="Discord 웹훅 전송" data-t="'+encodeURIComponent(r.t)+'" data-m="'+encodeURIComponent(r.m)+'" data-d="'+encodeURIComponent(r.d||'')+'" data-tc="'+r.tc+'" data-img="'+(r.a&&A[r.a]?A[r.a]:'')+'" data-tr="'+encodeURIComponent(r.tr&&r.tr.length?r.tr.map(t=>t.n+'. '+t.v+(t.f?' ('+t.f+')':'')+(t.s==='d'?' [삭제]':t.s==='s'?' [SC]':'')).join('\n'):'')+'">📤</button>';
     s.innerHTML+='<div class="'+cl+'" data-cat="'+r.tc+'"><div class="ch">'+art+'<div class="ci"><div class="ct">'+r.t+'</div><div class="cm"><span class="tg tg-'+r.tc+'">'+r.tg+'</span><span>'+r.m+'</span></div></div>'+wbtn+chv+'</div>'+bd+'</div>';
@@ -365,12 +383,51 @@ D.forEach(y=>{
 // ── Accordion (event delegation) ──
 c.addEventListener('click',function(e){
   if(e.target.closest('.wh-send'))return;
+  if(e.target.closest('.nm'))return;
+  if(e.target.closest('.lk-pop'))return;
   const ch=e.target.closest('.ch');if(!ch)return;
   const cd=ch.parentElement;const cb=cd.querySelector('.cb');if(!cb)return;
   const on=cd.classList.contains('on');
   cd.parentElement.querySelectorAll('.cd.on').forEach(x=>{if(x!==cd){x.classList.remove('on');x.querySelector('.cb').style.maxHeight='0';}});
   if(on){cd.classList.remove('on');cb.style.maxHeight='0';}
   else{cd.classList.add('on');cb.style.maxHeight=cb.scrollHeight+'px';}
+});
+
+// ── Link popup on track name click ──
+const svgSp='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>';
+const svgAm='<svg viewBox="0 0 361 361" fill="currentColor"><path d="M255 3H106C50.8 3 6 47.8 6 103v155c0 55.2 44.8 100 100 100h149c55.2 0 100-44.8 100-100V103C355 47.8 310.2 3 255 3zm22.3 251.7c-2.8 4.6-8.8 6.1-13.4 3.2-36.8-22.5-83.1-27.6-137.7-15.1-5.3 1.2-10.5-2.1-11.7-7.4-1.2-5.3 2.1-10.5 7.3-11.7 59.7-13.7 110.9-7.8 152.4 17.5 4.6 2.9 6 8.9 3.1 13.5zm5.9-47.5c-3.5 5.7-10.9 7.5-16.6 4-42.2-25.9-106.5-33.4-156.3-18.3-6.5 2-13.4-1.7-15.4-8.3-2-6.5 1.7-13.4 8.3-15.4 56.9-17.3 127.5-8.9 175.8 20.9 5.6 3.6 7.4 11 3.9 16.6l.3.5zm.5-49.5C232.8 126 141.5 123 86.5 139c-7.8 2.3-16-2.2-18.3-10-2.3-7.8 2.2-16 10-18.3 63.2-18.4 168.3-14.9 234.6 21.2 7 4.1 9.4 13.1 5.2 20.2-4.1 7-13.1 9.4-20.2 5.2l-.1.4z"/></svg>';
+const svgYm='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228 18.228 15.432 18.228 12 15.432 5.772 12 5.772zM9.684 15.54V8.46L15.816 12l-6.132 3.54z"/></svg>';
+const svgSc='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.06-.05-.1-.1-.1m-.899.828c-.06 0-.091.037-.104.094L0 14.479l.172 1.282c.013.06.045.094.104.094.057 0 .09-.038.104-.094l.21-1.282-.21-1.332c-.014-.057-.047-.094-.104-.094m1.8-.575c-.066 0-.108.042-.115.104l-.21 2.1.21 2.065c.007.06.049.104.114.104.066 0 .107-.044.116-.104l.24-2.065-.24-2.1c-.009-.06-.05-.104-.115-.104m5.751-2.278c-.105 0-.168.073-.172.15l-.127 4.127.127 1.72c.004.078.067.15.172.15.104 0 .166-.072.172-.15l.15-1.72-.15-4.127c-.006-.077-.068-.15-.172-.15m13.553 1.605a3.077 3.077 0 00-3.077 3.09c0 1.702 1.38 3.088 3.077 3.088 1.7 0 3.077-1.383 3.077-3.088 0-1.704-1.376-3.09-3.077-3.09"/></svg>';
+const svgYt='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>';
+
+let activePop=null;
+function closePop(){if(activePop){activePop.remove();activePop=null;}}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.nm')&&!e.target.closest('.lk-pop'))closePop();
+});
+
+c.addEventListener('click',function(e){
+  const nm=e.target.closest('.nm');
+  if(!nm||!nm.dataset.q)return;
+  e.stopPropagation();
+  closePop();
+  const s=nm.dataset.s;
+  const q=decodeURIComponent(nm.dataset.q);
+  const eq=encodeURIComponent(q);
+  let html='';
+  if(s==='d'||s==='s'){
+    html='<a class="lk-a" href="https://soundcloud.com/search?q='+eq+'" target="_blank"><span class="lk-sc">'+svgSc+'</span>SC</a>';
+    html+='<a class="lk-a" href="https://www.youtube.com/results?search_query='+eq+'" target="_blank"><span class="lk-yt">'+svgYt+'</span>YouTube</a>';
+  } else {
+    html='<a class="lk-a" href="https://open.spotify.com/search/'+eq+'" target="_blank"><span class="lk-sp">'+svgSp+'</span>Spotify</a>';
+    html+='<a class="lk-a" href="https://music.apple.com/search?term='+eq+'" target="_blank"><span class="lk-am">'+svgAm+'</span>Apple</a>';
+    html+='<a class="lk-a" href="https://music.youtube.com/search?q='+eq+'" target="_blank"><span class="lk-ym">'+svgYm+'</span>YT Music</a>';
+  }
+  const pop=document.createElement('div');
+  pop.className='lk-pop';
+  pop.innerHTML=html;
+  nm.appendChild(pop);
+  activePop=pop;
 });
 
 // ── Filter buttons ──
@@ -653,6 +710,92 @@ document.getElementById('wh-do-send').addEventListener('click',async function(){
   }
   this.disabled=false;this.textContent='전송';
 });
+})();
+
+// ── I18N LANGUAGE SYSTEM ──
+(function(){
+const L={
+  ko:{
+    sub:'Complete Discography · 2015 – 2026',prof:'프로필 →',
+    pub:'공개',del:'삭제',sco:'사클한정',unr:'미발매',fan:'팬보존',
+    stTotal:'총 트랙',stAlbum:'앨범/EP',stDel:'삭제곡',stSc:'SC한정',
+    fAll:'전체',fAlbum:'앨범/EP',fSingle:'싱글',fFeat:'피처링',fSc:'사클한정',fDel:'삭제',fUn:'미발매/라이브',
+    tg:{al:'앨범',ep:'EP',mx:'믹스테이프',sg:'싱글',mb:'MALL BOYZ',ft:'피처링',sc:'사클한정',dl:'삭제',un:'미발매',lv:'라이브전용'},
+    tsDel:'삭제',tsSc:'SC',
+    whTitle:'Discord 웹훅 전송',whSend:'전송',whCancel:'취소',whSet:'Discord 웹훅 설정',
+    updBtn:'신곡 확인',updTitle:'Spotify + SoundCloud 자동 업데이트'
+  },
+  en:{
+    sub:'Complete Discography · 2015 – 2026',prof:'Profile →',
+    pub:'Public',del:'Deleted',sco:'SC Only',unr:'Unreleased',fan:'Fan Preserved',
+    stTotal:'Total Tracks',stAlbum:'Albums/EPs',stDel:'Deleted',stSc:'SC Only',
+    fAll:'All',fAlbum:'Albums/EPs',fSingle:'Singles',fFeat:'Features',fSc:'SC Only',fDel:'Deleted',fUn:'Unreleased/Live',
+    tg:{al:'Album',ep:'EP',mx:'Mixtape',sg:'Single',mb:'MALL BOYZ',ft:'Feature',sc:'SC Only',dl:'Deleted',un:'Unreleased',lv:'Live Only'},
+    tsDel:'DEL',tsSc:'SC',
+    whTitle:'Send to Discord',whSend:'Send',whCancel:'Cancel',whSet:'Discord Webhook Settings',
+    updBtn:'Check for new',updTitle:'Spotify + SoundCloud Auto Update'
+  },
+  ja:{
+    sub:'Complete Discography · 2015 – 2026',prof:'プロフィール →',
+    pub:'公開',del:'削除',sco:'SC限定',unr:'未発売',fan:'ファン保存',
+    stTotal:'全トラック',stAlbum:'アルバム/EP',stDel:'削除曲',stSc:'SC限定',
+    fAll:'全て',fAlbum:'アルバム/EP',fSingle:'シングル',fFeat:'フィーチャリング',fSc:'SC限定',fDel:'削除',fUn:'未発売/ライブ',
+    tg:{al:'アルバム',ep:'EP',mx:'ミックステープ',sg:'シングル',mb:'MALL BOYZ',ft:'フィーチャリング',sc:'SC限定',dl:'削除',un:'未発売',lv:'ライブ限定'},
+    tsDel:'削除',tsSc:'SC',
+    whTitle:'Discordに送信',whSend:'送信',whCancel:'キャンセル',whSet:'Discordウェブフック設定',
+    updBtn:'新曲チェック',updTitle:'Spotify + SoundCloud 自動アップデート'
+  }
+};
+
+function setLang(lang){
+  const t=L[lang]||L.ko;
+  // Header
+  document.getElementById('hd-sub').textContent=t.sub;
+  document.getElementById('prof-link').textContent=t.prof;
+  // Legend
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    if(t[el.dataset.i])el.textContent=t[el.dataset.i];
+  });
+  // Filter buttons (preserve count spans)
+  document.querySelectorAll('#FB button[data-i]').forEach(btn=>{
+    const key=btn.dataset.i;
+    if(t[key]){
+      const cnt=btn.querySelector('.cnt');
+      btn.textContent=t[key];
+      if(cnt)btn.appendChild(cnt);
+    }
+  });
+  // Card tag labels
+  document.querySelectorAll('.tg').forEach(el=>{
+    const cls=[...el.classList].find(c=>c.startsWith('tg-')&&c!=='tg');
+    if(cls){
+      const tc=cls.replace('tg-','');
+      if(t.tg[tc])el.textContent=t.tg[tc];
+    }
+  });
+  // Track status badges
+  document.querySelectorAll('.ts-d').forEach(el=>el.textContent=t.tsDel);
+  document.querySelectorAll('.ts-s').forEach(el=>el.textContent=t.tsSc);
+  // Webhook buttons
+  document.querySelectorAll('.wh-send').forEach(el=>el.title=t.whTitle);
+  // Update panel
+  const updGo=document.getElementById('upd-go');
+  if(updGo)updGo.textContent=t.updBtn;
+  // Lang buttons
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('on',b.dataset.lang===lang);
+  });
+  localStorage.setItem('tohji_lang',lang);
+  document.documentElement.lang=lang==='ko'?'ko':lang==='ja'?'ja':'en';
+}
+
+// Init
+const savedLang=localStorage.getItem('tohji_lang')||'ko';
+document.getElementById('langSw').addEventListener('click',e=>{
+  const btn=e.target.closest('.lang-btn');
+  if(btn)setLang(btn.dataset.lang);
+});
+if(savedLang!=='ko')setLang(savedLang);
 })();
 </script>
 </body>
