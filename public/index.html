@@ -235,6 +235,39 @@ const A={
 "sc_nocoke":"https://i1.sndcdn.com/artworks-000336937608-77srem-t500x500.jpg",
 "sc_iloveyou":"https://i1.sndcdn.com/artworks-s8z8N4zdhiScDafm-YArXVg-t500x500.jpg"
 };
+// ── Direct streaming links map ──
+// sp=Spotify track ID, yt=YouTube video ID, sc=SoundCloud path
+const LK={
+// 1996 EP
+"IDWPA -prelude-":{sp:"1B2xQjAj3ZLqBKaze94wLd"},"Veen veeen!":{sp:"0V947G0H2AE06ufJz6DjdO",yt:"-LUcfKdR4Tw"},"oh boy":{sp:"3ZwPoIZCYCHd0mK32In8WZ"},"YUGURE":{sp:"1cL1XUsRuNY7vjA9uZW6Tx"},
+// 9.97
+"sugAA":{sp:"55w8n6n8osHgmXCsI4fXvJ",yt:"6jlb-62P2lA"},"flu":{sp:"40QYXqhJxzbym8L5r9wxeq",yt:"NPX1_fhOYWg"},"mAntle f**k":{sp:"5vsvyjuLBL0prERNAJFA68",yt:"hNR51IRrHpA"},"sAru":{sp:"2DQZjxBLAVhs57MQq9P9NM",yt:"cjpP1StgeFg"},
+// angel
+"intro":{sp:"5lBvQwj32Tt5SwXS8tIseg"},"Snowboarding":{sp:"3lLsdtEyecIYrFmrb1Hvgv"},"Rodeo":{sp:"6RWASiTB5GAlJaUxF0Wt2G",yt:"h4rtxlz5f24"},"mamasaidloveme":{sp:"2XfJ1geDSY1CH2mdMG1mAA"},"HI-CHEW":{sp:"4avmSsmHHbDz9SWGJGfcgv"},"Jetlife":{sp:"3FUYFmI1GMd7wFZah5Cyqq"},"\u30c8\u30a6\u30b8\u8ca0\u50b7":{sp:"5DNmkbcrdfByR7HI7hLvlL"},"on my own way":{sp:"3vAqFusbryBGMoWO52sK8Z"},"miss u":{sp:"1skhAwWZTd0XfihmnU5bP0"},
+// KUUGA
+"Aegu":{sp:"0IwyTCEEC6kdlmVVrCBloF"},"Yodaka":{sp:"78jPtHSJH5g9inbbBc4JQW"},"Tob":{sp:"2lCeFJ8gx0ti5Sx2U0cuii"},"Naked":{sp:"3NGQRjQyBEmUFRo1j2BuHg"},"Oni":{sp:"2lZyCbqftFs0EP3UZM45YG"},"Iron D**k":{sp:"7DWdzy9CfxVTAQVyEfUwrM"},"Errday":{sp:"6yRWCsUK7dAAOWfYoPar6t"},"Outro":{sp:"1vEsMoq1nAM5V6kGCh5hfb"},
+// Broken EP
+"rip ma FD skit":{sp:"1JTNztExDsIUksOdch7XbF"},"seagull":{sp:"05bjK8PliuQLtuWToTVAfx"},"on n on (early in the morning)":{sp:"6QXbvf5Akpt4gBg7xsydDV"},"a piano boy skit":{sp:"51AIZtYMjLkWk2FI0eXBd4"},"M78 (ma FD)":{sp:"5OjosnOvL5AO6s8mStSoxQ"},
+// t-mix
+"HANABI":{sp:"2IrF2k51RkNjXFt017djtp"},"Valley says":{sp:"0kZzor6VZUrZgdZiHD6bZV"},"ULTRA RARE":{sp:"0qjTXBIpAebVLwhwGhnDGk"},"Twilight Zone":{sp:"2tEjIeCF911VaVs8c9Gv95"},"shell":{sp:"0AXK15hXVnGIBPfW9DM5CY"},"WATER WAY":{sp:"0B0bDdvkiTdWype1D1WyUd"},"Super Ocean Man":{sp:"3M3tWWm40ZGGvku8Iptp5L",yt:"CZSxS9wOrhM"},"seaside train skit":{sp:"2PhJRFL3Z5l8VPczP767nN"},"\u821e\u6d5c":{sp:"3mx4XuNa1mLqFArzJ8FFCd"},"\u306d\u308b\u306d\u308b\u306d\u308b\u306d":{sp:"0aQDqeKYNjCZWHarsE17q4"},"UFO":{sp:"2GD7BTxKisF0RNDvISe3cF"},
+// medium rare EP
+"medium rare":{sp:"7BOQjwnL1qsFZt3PpsqWjO"},"frozen rain":{sp:"6bjPTCfyCtBW3OihPKqzvW"},"Phenomeno":{sp:"47ctXywXkBdLe1DxrF6XeB"},
+// zero-one
+"Sapphire Timberlake":{sp:"7gfihEbbJsyo0DkpOqZFsW"},"crying":{sp:"4dpd10Ettcx88KojfYZikx"},"Guernica-Kei":{sp:"0wuqz0mD2FJIXFRCAECCPh"},"Tenkasu":{sp:"6tnGosItkhmE5iXS4Yh07n"},"Saint-Seiya":{sp:"62i7iuG7akqkLJGLAyRxlx"},"smt like":{sp:"7iMb9OdFcssu1cFtRJAAlJ"},"galaxy":{sp:"00Tviezh9KUXK9396XVC0b"},
+// zero-two
+"Jungle-Jin":{sp:"4LZOHA6VvYjLCO1neEsIPV",yt:"EozdG9G4EVo"},"Terminator":{sp:"5UJFsvVRkvVB5bm4Jip0Be"},"Achii":{sp:"1lB2wskQVSiQAZCxRdIkNL"},"dream":{sp:"7h5R8BY9SZQepQqocvaMUb"},"babuu":{sp:"2mO6G42xhMtMAQMN2MJaJE"},"X-ray":{sp:"53Te1ZM2TADN0EROdxc7xP"},"jenga":{sp:"2jfVq3ySM3kfrXufb5UNJw"},"Crystal-Zeami":{sp:"4dmwokhFpmYFA4gDtzDJvH"},
+// Mall Tape
+"Higher":{sp:"3J4MYj9VMdARb2Gs4zjkoW",yt:"L5dhhdhO4Yw"},"fuck it up":{sp:"6iJ0CnNQOkHcUGOAvXnG3t"},"mallin'":{sp:"4RZga1rWE9dj5H6oFBaLP4"},"Cool running":{sp:"5ubMibRwKWDVJIfmn7YCLs"},
+// Mall Tape 2
+"My Life":{sp:"1y8bLRSmmBQRHWj80lryPX"},"mango run":{sp:"6Ak5Z0cZdXBGxIwBDduvHd"},"5pm skit":{sp:"2Kw7xCPItZpj8AVGdVD9Iq"},"Akira yeah":{sp:"32n0t7eQkvCCxvjvSxv2RX"},"let's go to the poolside":{sp:"0CXIOQfpsm7sDT45o8sIdz"},"POOL SIDE":{sp:"4vl3jJhiHzTTkLTNVtRXkb"},"Do u remember me":{sp:"3M8hUUiLXqKkk4PCh1KZJN"},
+// Singles
+"I'm a Godzilla Duh":{sp:"7unfrLEnAOiT0cyN9rVUIC",yt:"4Tm052UgZQw"},"OREO":{sp:"0okga8xGlh8xjfZce7NhSe",yt:"TWlCTQzkjQM"},"Propella":{sp:"1scvcGkqbDpg0PgaA5GgXz",yt:"ssVS0bU9xOo"},"Aglio e Olio":{sp:"09aFUqQgJPn0Awn47JGKND",yt:"y0g2CI1Gc74"},"medium rare (sim0ne remix)":{sp:"08K2pyDea4ttFLXBarVlVb"},"On My Own Way":{sp:"1qZgUQJPeMNuaJoQzk5iz3"},"My Swag":{sp:"2WZIsL1JSmB59rbUx0qd7o"},"echo":{sp:"55MTb3m3PLJOr4TjBfm1cx"},"one":{sp:"0SA7nie8HjSfo84DRrypK4"},
+// Featuring
+"slim christ":{sp:"4e03hIeNUXRg2CeeIw2Jtp"},"Salvage":{sp:"72cGw0rtn9cfn5uBeWokT7"},"lastnight":{sp:"3gsEKW4bw7GBWdWpQB2mso",yt:"exkb7-1n8nU"},"aero":{sp:"7mehXAUzNYa94tgCLx30yz"},"ART (OBKR/Yaffle Remix)":{sp:"7efHcE9yq9TwVoIfenA1Rc"},"Tohji's Track":{sp:"29kNSrVtEHRMlLL2DwZX8H"},"Ridin'":{sp:"0BG3YhX5OUikNOvo3biOLQ"},"Love Sick":{sp:"3SstAWrmmGa1Aakh6B2HSq"},"Taco":{sp:"77pv5V5gomCEbz0c22Hinm"},"slomo":{sp:"1siKLsvJLmVM8fBzJrpBNy"},"To My Bed":{sp:"1N3WrAaMPbBnxFMUhNNRd5"},"Black Hole":{sp:"7jEnNxm6i3cRxY1BQRsXiW"},"Assenayo":{sp:"4iOCzq5S4zTCiBjwT8YWSQ"},"Distortion":{sp:"3dQqB33z0JRFwkB8zHxhBe"},"Freesia":{sp:"7EAtNlXzPff6tgocVAbRCO"},"Different Trains":{sp:"2kcJMgV6RGhBqfmPMzSBIR"},"Play":{sp:"1pQBfFkMwMoLbL0I1gZhDz"},"One More Energy":{sp:"0wP7N2d5bTCqMVY6cXCrFZ"},"Sagging My Jeans":{sp:"7IdJ0etPnVFQg6teIH21kj"},"\u30aa\u30ec\u30f3\u30b8\u30ec\u30f3\u30b8":{sc:"11_tohji_11/orangerange"},"AHIRU":{sp:"39xmWlJnFsohi9xNMswVZi"},
+// SoundCloud only
+"War (Where Ya at Remix)":{sc:"11_tohji_11/where-ya-at-tohji-remix"},"City Hunter":{sc:"11_tohji_11/freestylegg"},"nap":{sc:"11_tohji_11/gokou-kuyt-x-tohji-x-sleet-mage-x-who28-nap"},"Empire 2000 [NEO PARAPARA mix]":{sc:"11_tohji_11/mall-boyztohji-gummy-boy-empire-2000-neo-parapara-mix-free-dl"},"on my own way -mall screw mix-":{sc:"11_tohji_11/on-my-own-way-mall-screw-mix"},"jelly bean":{sc:"nokia-god-827629268/jelly-bean-ft-tohji"},"DOCTOR":{sc:"akirayagi/doctor"},"MARUMORI GOD":{sc:"akirayagi/marumori-god-feat-tohji"},"Did It":{sc:"akirayagi/mall-boyzgummyboytohji-did-it-prod-stei-our-mixtape-come-sooooon"},"lil shawty from the westside":{sc:"eenzamejongen/lil-shawty-from-the-westside-fttohji-1"},"LIFE":{sc:"aa8ouc9ijrmj/life-ft-pazu"},"NO COKE!":{sc:"eenzamejongen/no-cokefeattohji"},
+"RASEN Vol.2 Cypher":{yt:"5fPk-_24Mh8"},"Red Oct":{sp:"0su5k6e81nOEKI2cqu7FzE"}
+};
 const D=[
 {y:"2015–16",r:[
 {tg:"미발매",tc:"un",ic:"un",ix:"◌",t:"USB 배포 음원 (1~2곡)",m:"~2015 · 런던",d:"PALACE/Supreme 매장 앞 USB 배포. 영구 소실.",tr:[]}
@@ -372,7 +405,7 @@ D.forEach(y=>{
     if(r.a&&A[r.a])art='<img class="ar" src="'+A[r.a]+'" alt="" loading="lazy">';
     else{let ic='ic ';if(r.ic==='sc')ic+='ic-sc';else if(r.ic==='dl')ic+='ic-dl';else if(r.ic==='un')ic+='ic-un';else if(r.ic==='lv')ic+='ic-lv';else ic+='ic-ft';art='<div class="'+ic+'">'+(r.ix||'♫')+'</div>';}
     let bd='',has=r.d||(r.tr&&r.tr.length);
-    if(has){let dd=r.d?'<div class="ds">'+r.d+'</div>':'';let tl='';if(r.tr&&r.tr.length){tl='<ol class="tl">'+r.tr.map(t=>{let nc=t.s==='d'?'nm sk':'nm';let st='';if(t.s==='d')st='<span class="ts ts-d">삭제</span>';else if(t.s==='s')st='<span class="ts ts-s">SC</span>';let ft=t.f?'<span class="ft">'+t.f+'</span>':'';let sq=encodeURIComponent('Tohji '+t.v);return'<li><span class="tn">'+t.n+'</span><span class="'+nc+'" data-q="'+sq+'" data-s="'+(t.s||'')+'">'+t.v+ft+'</span>'+st+'</li>';}).join('')+'</ol>';}bd='<div class="cb"><div class="cbi">'+dd+tl+'</div></div>';}
+    if(has){let dd=r.d?'<div class="ds">'+r.d+'</div>':'';let tl='';if(r.tr&&r.tr.length){tl='<ol class="tl">'+r.tr.map(t=>{let nc=t.s==='d'?'nm sk':'nm';let st='';if(t.s==='d')st='<span class="ts ts-d">삭제</span>';else if(t.s==='s')st='<span class="ts ts-s">SC</span>';let ft=t.f?'<span class="ft">'+t.f+'</span>':'';let sq=encodeURIComponent('Tohji '+t.v);let lk=LK[t.v];let ld=lk?encodeURIComponent(JSON.stringify(lk)):'';return'<li><span class="tn">'+t.n+'</span><span class="'+nc+'" data-q="'+sq+'" data-s="'+(t.s||'')+'" data-lk="'+ld+'">'+t.v+ft+'</span>'+st+'</li>';}).join('')+'</ol>';}bd='<div class="cb"><div class="cbi">'+dd+tl+'</div></div>';}
     let chv=has?'<svg class="chv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>':'';
     let wbtn='<button class="wh-send" title="Discord 웹훅 전송" data-t="'+encodeURIComponent(r.t)+'" data-m="'+encodeURIComponent(r.m)+'" data-d="'+encodeURIComponent(r.d||'')+'" data-tc="'+r.tc+'" data-img="'+(r.a&&A[r.a]?A[r.a]:'')+'" data-tr="'+encodeURIComponent(r.tr&&r.tr.length?r.tr.map(t=>t.n+'. '+t.v+(t.f?' ('+t.f+')':'')+(t.s==='d'?' [삭제]':t.s==='s'?' [SC]':'')).join('\n'):'')+'">📤</button>';
     s.innerHTML+='<div class="'+cl+'" data-cat="'+r.tc+'"><div class="ch">'+art+'<div class="ci"><div class="ct">'+r.t+'</div><div class="cm"><span class="tg tg-'+r.tc+'">'+r.tg+'</span><span>'+r.m+'</span></div></div>'+wbtn+chv+'</div>'+bd+'</div>';
@@ -414,14 +447,20 @@ c.addEventListener('click',function(e){
   const s=nm.dataset.s;
   const q=decodeURIComponent(nm.dataset.q);
   const eq=encodeURIComponent(q);
+  let lk=null;
+  try{if(nm.dataset.lk)lk=JSON.parse(decodeURIComponent(nm.dataset.lk));}catch(e){}
   let html='';
   if(s==='d'||s==='s'){
-    html='<a class="lk-a" href="https://soundcloud.com/search?q='+eq+'" target="_blank"><span class="lk-sc">'+svgSc+'</span>SC</a>';
-    html+='<a class="lk-a" href="https://www.youtube.com/results?search_query='+eq+'" target="_blank"><span class="lk-yt">'+svgYt+'</span>YouTube</a>';
+    if(lk&&lk.sc)html+='<a class="lk-a" href="https://soundcloud.com/'+lk.sc+'" target="_blank"><span class="lk-sc">'+svgSc+'</span>SC</a>';
+    else html+='<a class="lk-a" href="https://soundcloud.com/search?q='+eq+'" target="_blank"><span class="lk-sc">'+svgSc+'</span>SC</a>';
+    if(lk&&lk.yt)html+='<a class="lk-a" href="https://www.youtube.com/watch?v='+lk.yt+'" target="_blank"><span class="lk-yt">'+svgYt+'</span>YouTube</a>';
+    else html+='<a class="lk-a" href="https://www.youtube.com/results?search_query='+eq+'" target="_blank"><span class="lk-yt">'+svgYt+'</span>YouTube</a>';
   } else {
-    html='<a class="lk-a" href="https://open.spotify.com/search/'+eq+'" target="_blank"><span class="lk-sp">'+svgSp+'</span>Spotify</a>';
+    if(lk&&lk.sp)html+='<a class="lk-a" href="https://open.spotify.com/track/'+lk.sp+'" target="_blank"><span class="lk-sp">'+svgSp+'</span>Spotify</a>';
+    else html+='<a class="lk-a" href="https://open.spotify.com/search/'+eq+'" target="_blank"><span class="lk-sp">'+svgSp+'</span>Spotify</a>';
     html+='<a class="lk-a" href="https://music.apple.com/search?term='+eq+'" target="_blank"><span class="lk-am">'+svgAm+'</span>Apple</a>';
-    html+='<a class="lk-a" href="https://music.youtube.com/search?q='+eq+'" target="_blank"><span class="lk-ym">'+svgYm+'</span>YT Music</a>';
+    if(lk&&lk.yt)html+='<a class="lk-a" href="https://www.youtube.com/watch?v='+lk.yt+'" target="_blank"><span class="lk-yt">'+svgYt+'</span>MV</a>';
+    if(lk&&lk.sc)html+='<a class="lk-a" href="https://soundcloud.com/'+lk.sc+'" target="_blank"><span class="lk-sc">'+svgSc+'</span>SC</a>';
   }
   const pop=document.createElement('div');
   pop.className='lk-pop';
